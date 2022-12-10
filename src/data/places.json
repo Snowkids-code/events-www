@@ -1,0 +1,22 @@
+[
+  {
+    "_id": 1,
+    "source": "/images/sa-picture.jpeg"
+  },
+  {
+    "_id": 2,
+    "source": "/images/qatar-pic.jpeg"
+  },
+  {
+    "_id": 3,
+    "source": "/images/russia-picture.jpeg"
+  },
+  {
+    "_id": 4,
+    "source": "/images/kenya-savanna-pic.jpeg"
+  },
+  {
+    "_id": 5,
+    "source": "/images/china-picture.webp"
+  }
+]

@@ -1,0 +1,31 @@
+.places-container {
+  padding: 4rem 0;
+  height: fit-content;
+
+  .places-wrapper {
+    text-align: center;
+    height: fit-content;
+
+    h2 {
+      @include font-heading($heading-font-size, 550, black, 1.5);
+    }
+
+    .images-container {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr 1fr 1fr 0.2fr;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      position: relative;
+
+      @media screen and (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      img {
+        object-fit: cover;
+        @include square(100%);
+        max-height: 20rem;
+      }
+    }
+  }
+}

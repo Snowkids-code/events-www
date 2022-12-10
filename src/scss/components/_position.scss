@@ -1,0 +1,38 @@
+.position-container {
+  @extend .primary-container;
+  padding: 4rem 0;
+
+  .position-wrapper {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @media screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .left-container {
+      @include flex(center, center, column);
+      text-align: center;
+
+      h2 {
+        @include font-heading($heading-font-size, 550, black, 1);
+      }
+
+      p {
+        margin-top: 2rem;
+        @include font-body($body-font-size, 400, black, 1.5);
+      }
+    }
+
+    .right-container {
+      position: relative;
+
+      img {
+          @include square(100%)
+      }
+    }
+  }
+}
