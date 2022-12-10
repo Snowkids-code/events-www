@@ -1,0 +1,89 @@
+.rooms-container {
+  @extend .primary-container;
+  padding: 4rem 0;
+
+  .rooms-wrapper {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "top"
+        "bottom";
+      gap: 2rem;
+    }
+
+    .left-container {
+      display: grid;
+      grid-template-areas:
+        "top top"
+        "left right";
+      gap: 1rem;
+
+      @media screen and (max-width: 1000px) {
+        grid-area: bottom;
+      }
+
+      @media screen and (max-width: 600px) {
+        grid-template-areas:
+          "top"
+          "left"
+          "right";
+      }
+
+      .top-rooms-container {
+        grid-area: top;
+        position: relative;
+
+        img {
+          object-fit: cover;
+          @include square(100%);
+          max-height: 10rem;
+        }
+      }
+
+      .left-rooms-container {
+        grid-area: left;
+        position: relative;
+
+        img {
+          object-fit: cover;
+          @include square(100%);
+          max-height: 10rem;
+        }
+      }
+
+      .right-rooms-container {
+        grid-area: right;
+        position: relative;
+
+        img {
+          object-fit: cover;
+          @include square(100%);
+          max-height: 10rem;
+        }
+      }
+    }
+
+    .right-container {
+      @include flex(center, center, column);
+      text-align: center;
+
+      @media screen and (max-width: 1000px) {
+        grid-area: top;
+      }
+
+      h2 {
+        @include font-heading($heading-font-size, 550, black, 1);
+      }
+
+      p {
+        margin-top: 2rem;
+        @include font-body($body-font-size, 400, black, 1.5);
+      }
+    }
+  }
+}

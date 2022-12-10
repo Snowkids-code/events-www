@@ -4,6 +4,7 @@ import HomeDescription from "../../components/Home/HomeDescription";
 import HomeFeatures from "../../components/Home/HomeFeatures";
 import Places from "../../components/Home/Places";
 import Position from "../../components/Home/Position";
+import Rooms from "../../components/Home/Rooms";
 import Footer from "../../components/Layout/Footer";
 import Navbar from "../../components/Layout/Navbar";
 
@@ -15,6 +16,7 @@ function Homepage() {
       <HomeDescription />
       <Position />
       <Places />
+      <Rooms />
     </div>
   );
 }
