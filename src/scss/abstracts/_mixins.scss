@@ -1,0 +1,15 @@
+@mixin font-heading($fs, $fw, $color, $lh) {
+  font-family: "Playfair Display", serif;
+  font-size: $fs;
+  font-weight: $fw;
+  color: $color;
+  line-height: $lh;
+}
+
+@mixin font-body($fs, $fw, $color, $lh) {
+  font-family: "Open Sans", sans-serif;
+  font-size: $fs;
+  font-weight: $fw;
+  color: $color;
+  line-height: $lh;
+}

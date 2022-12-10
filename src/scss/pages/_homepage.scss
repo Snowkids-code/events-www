@@ -1,0 +1,5 @@
+.homepage-container {
+    p {
+        @include font-heading(1, 400, black, 1)
+    }
+}
