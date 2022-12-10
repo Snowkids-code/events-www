@@ -1,0 +1,50 @@
+.home-features-main-container {
+  @extend .primary-container;
+  background-color: #fffff3;
+
+  .home-features-container {
+    display: grid;
+    grid-area: main;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 5rem 0rem;
+
+    @media screen and (max-width: 1700px) {
+      padding: 4rem 1rem;
+    }
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
+      justify-items: flex-start;
+      gap: 2rem;
+    }
+
+    .home-features-wrapper {
+      @include flex(flex-start, center, row);
+      gap: 1.5rem;
+
+      .img-wrapper {
+        .img {
+          @include square(2rem);
+        }
+      }
+
+      .text-wrapper {
+        @include flex(flex-start, flex-start, column);
+        gap: 0.25rem;
+
+        .title {
+          @include font-heading(1, 500, black, 1.5);
+        }
+
+        .desc {
+          @include font-body(1, 500, #a8a8a5, 1.5);
+        }
+      }
+    }
+  }
+}

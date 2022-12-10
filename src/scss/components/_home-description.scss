@@ -1,0 +1,18 @@
+.home-descrption-container {
+  @extend .primary-container;
+  padding: 4rem 0;
+
+  .home-description-wrapper {
+      grid-area: main;
+      text-align: center;
+
+      h2 {
+          @include font-heading($heading-font-size, 550, black, 1)
+      }
+
+      p {
+          margin-top: 2rem;
+          @include font-body($body-font-size, 400, black, 1.5)
+      }
+  }
+}
