@@ -1,0 +1,23 @@
+.primary-container {
+    display: grid;
+    grid-template-columns: auto 70rem auto;
+    grid-template-areas: ". main .";
+    margin-top: 0;
+  
+  
+    @media only screen and (min-width: 2300px) {
+      grid-template-columns: auto 70rem auto;
+    }
+    @media only screen and (max-width: 1700px) {
+      grid-template-columns: 15vw 70vw 15vw;
+    }
+    @media only screen and (max-width: 1500px) {
+      grid-template-columns: 10vw 80vw 10vw;
+    }
+    @media only screen and (max-width: 1300px) {
+      grid-template-columns: 5vw 90vw 5vw;
+    }
+    @media only screen and (max-width: 700px) {
+      grid-template-columns: 2.5vw 95vw 2.5vw;
+    }
+  }

@@ -1,0 +1,116 @@
+.footer-container {
+  @extend .primary-container;
+  background-color: #333333;
+  padding: 1rem 0;
+
+  .footer-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr 0.75fr;
+    grid-area: main;
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: 1fr;
+    }
+
+    .left-container {
+      padding-right: 1rem;
+
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+
+      .image-container {
+        display: flex;
+        gap: 0.5rem;
+
+        p {
+          @include font-body(1.25, 550, rgba(255, 255, 255, 0.6), 1);
+        }
+      }
+
+      p {
+        @include font-body(1, normal, rgba(255, 255, 255, 0.6), 1);
+      }
+    }
+
+    .center-container {
+      @include flex(flex-start, flex-start, row);
+      gap: 2rem;
+
+      @media screen and (max-width: 1500px) {
+        gap: 2rem;
+      }
+
+      @media screen and (max-width: 1000px) {
+        flex-direction: column;
+      }
+
+      .contact-us-container {
+        .title {
+          @include font-body(1.25, 550, white, 1);
+        }
+
+        .contact-us-wrapper {
+          @include flex(flex-start, center, row);
+          gap: 0.75rem;
+          cursor: pointer;
+
+          p {
+            @include font-body(1, normal, rgba(255, 255, 255, 0.6), 1);
+            margin: 0.5rem 0;
+          }
+        }
+      }
+
+      .quick-link-container {
+        .title {
+          @include font-body(1.25, 550, white, 1);
+        }
+
+        .links {
+          @include font-body(1, normal, rgba(255, 255, 255, 0.6), 1);
+          margin: 0.5rem 0;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .right-container {
+      @media screen and (max-width: 1000px) {
+        width: 50%;
+      }
+
+      @media screen and (max-width: 700px) {
+        width: 100%;
+      }
+      .title {
+        @include font-body(1.25, 550, white, 1);
+      }
+
+      .input-container {
+        @include flex(space-between, center, row);
+        height: 2rem;
+
+        input {
+          border: none;
+          outline: none;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          padding: 0 0.5rem;
+          @include font-body(0.8375, 550, white, 1);
+        }
+      }
+
+      button {
+        margin-top: 1rem;
+        width: 100%;
+        height: 2rem;
+        cursor: pointer;
+        background-color: #ed9121;
+        border: none;
+        @include font-body(0.8375, 550, white, 1);
+      }
+    }
+  }
+}

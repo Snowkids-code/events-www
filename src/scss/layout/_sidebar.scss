@@ -1,0 +1,4 @@
+.sidebar-container {
+    @include flex(flex-start, center, row);
+    gap: 1rem;
+}

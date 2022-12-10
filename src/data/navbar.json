@@ -1,0 +1,22 @@
+[
+  {
+    "_id": 1,
+    "value": "Home",
+    "path" : "/"
+  },
+  {
+    "_id": 2,
+    "value": "Events",
+    "path" : "/"
+  },
+  {
+    "_id": 3,
+    "value": "About Us",
+    "path" : "/"
+  },
+  {
+    "_id": 4,
+    "value": "Contact Us",
+    "path" : "/"
+  }
+]

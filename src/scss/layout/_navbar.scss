@@ -1,0 +1,36 @@
+.navbar-container {
+  display: grid;
+  grid-template-columns: 2.5% 95% 2.5%;
+  grid-template-areas: ". main .";
+  margin-top: 0;
+  padding-top: 0;
+  position: absolute;
+  width: 100vw;
+  z-index: 99;
+  margin-top: 1rem;
+
+  .navbar-wrapper {
+    @include flex(space-between, center, row);
+    grid-area: main;
+
+    .left-container {
+      p {
+        @include font-heading(2, 550, white, 2);
+      }
+    }
+
+    .center-container {
+      @include flex(center, center, row);
+
+      ul {
+        list-style: none;
+        @include flex(flex-start, center, row);
+        display: inline;
+
+        a {
+          @include font-body(1.0125, 550, #fff, 1);
+        }
+      }
+    }
+  }
+}

@@ -2,5 +2,16 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
 
+//base
+@import "base/container";
+
+//layout
+@import "layout/footer";
+@import "layout/navbar";
+@import "layout/sidebar";
+
 //pages
 @import "pages/homepage";
+
+//components
+@import "components/homepage-carousel";

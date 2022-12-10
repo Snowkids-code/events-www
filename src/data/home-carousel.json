@@ -1,0 +1,26 @@
+[
+    {
+        "_id" : 1,
+        "firstPicture" : "/images/ronaldo-image.webp",
+        "secondPicture" : "/images/messi-image.png",
+        "eventLogo" : "/images/world-cup-image.jpeg",
+        "backgroundColor" : "#56042C",
+        "event" : "Qatar World Cup 2022"
+    },
+    {
+        "_id" : 1,
+        "firstPicture" : "/images/max-verstappen-image.jpeg",
+        "secondPicture" : "/images/lewis-hamilton-image.webp",
+        "eventLogo" : "/images/world-cup-image.jpeg",
+        "backgroundColor" : "#FF1801",
+        "event" : "Formula 1 Gulf Air bahrain Grand Prix 2023"
+    },
+    {
+        "_id" : 1,
+        "firstPicture" : "/images/kipchoge-image.webp",
+        "secondPicture" : "/images/cycling-image.jpeg",
+        "eventLogo" : "/images/world-cup-image.jpeg",
+        "backgroundColor" : "#0083CC",
+        "event" : "Special Olympics Germany 2023"
+    }
+]

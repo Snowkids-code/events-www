@@ -1,0 +1,26 @@
+[
+  {
+    "_id": 1,
+    "img": "/icons/features/truck-cargo-container.svg",
+    "title": "Fast Shipping",
+    "desc": "Same day shipping"
+  },
+  {
+    "_id": 2,
+    "img": "/icons/features/umbrella.svg",
+    "title": "Security",
+    "desc": "Safe browser shopping"
+  },
+  {
+    "_id": 3,
+    "img": "/icons/features/help-center.svg",
+    "title": "Return?",
+    "desc": "Flexible return policy"
+  },
+  {
+    "_id": 4,
+    "img": "/icons/features/card.svg",
+    "title": "Payment",
+    "desc": "Fast payment processing"
+  }
+]

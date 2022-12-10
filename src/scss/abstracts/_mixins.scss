@@ -1,6 +1,6 @@
 @mixin font-heading($fs, $fw, $color, $lh) {
   font-family: "Playfair Display", serif;
-  font-size: $fs;
+  font-size: $fs + rem;
   font-weight: $fw;
   color: $color;
   line-height: $lh;
@@ -8,8 +8,25 @@
 
 @mixin font-body($fs, $fw, $color, $lh) {
   font-family: "Open Sans", sans-serif;
-  font-size: $fs;
+  font-size: $fs + rem;
   font-weight: $fw;
   color: $color;
   line-height: $lh;
+}
+
+@mixin dimensions($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin square($x) {
+  width: $x;
+  height: $x;
+}
+
+@mixin flex($jc, $ai, $fd) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $fd;
 }
