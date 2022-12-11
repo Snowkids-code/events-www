@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   createBrowserRouter,
   Navigate,
@@ -6,6 +7,7 @@ import {
 } from "react-router-dom";
 import Footer from "./components/Layout/Footer";
 import Navbar from "./components/Layout/Navbar";
+import { AuthContext } from "./context/authContext";
 import logo from "./logo.svg";
 import Login from "./pages/authentication/Login";
 import Register from "./pages/authentication/Register";
@@ -16,6 +18,8 @@ import Homepage from "./pages/homepage/Homepage";
 import "./styles/App.css";
 
 function App() {
+  const { currentUser } = useContext(AuthContext);
+
   const Layout = () => {
     return (
       <div>
@@ -25,8 +29,6 @@ function App() {
       </div>
     );
   };
-
-  const currentUser = true;
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {

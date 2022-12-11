@@ -1,7 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
 
 function Login() {
+  const { login } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    login();
+    navigate("/");
+  };
+
   return (
     <div className="login-container">
       <div className="login-card">
@@ -22,7 +32,7 @@ function Login() {
           <form>
             <input type="text" placeholder="Username" />
             <input type="password" placeholder="Password" />
-            <button>Login</button>
+            <button onClick={handleLogin}>Login</button>
           </form>
         </div>
       </div>
