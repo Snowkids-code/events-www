@@ -2,6 +2,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Footer from "./components/Layout/Footer";
 import Navbar from "./components/Layout/Navbar";
 import logo from "./logo.svg";
+import Cart from "./pages/cart/Cart";
 import Event from "./pages/events-page/Event";
 import Events from "./pages/events-page/Events";
 import Homepage from "./pages/homepage/Homepage";
@@ -34,6 +35,10 @@ function App() {
         {
           path: "/events/:id",
           element: <Event />,
+        },
+        {
+          path: "/cart",
+          element: <Cart />,
         },
       ],
       errorElement: <Homepage />,

@@ -1,0 +1,96 @@
+.cart-container {
+  .cart-top-container {
+    height: 30vh;
+    position: relative;
+
+    img {
+      object-fit: cover;
+      @include dimensions(100%, 100%);
+    }
+  }
+
+  .cart-content-container {
+    @extend .primary-container;
+    padding: 4rem 0;
+
+    .cart-content-wrapper {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 4fr 2fr;
+      grid-template-areas: "cart summary";
+      margin-top: 2rem;
+      gap: 4rem;
+
+      .cart-left-container {
+        grid-area: cart;
+
+        .heading-container {
+          @include flex(space-between, center, row);
+          gap: 2rem;
+          padding: 0 2rem;
+          background-color: rgb(178, 178, 240);
+          height: 5rem;
+          border-radius: 5px;
+
+          .title-container {
+            @include flex(flex-start, center, row);
+            gap: 0.25rem;
+
+            .counter {
+              @include flex(center, center, row);
+              @include square(1.5rem);
+              border-radius: 100%;
+              background-color: rgb(114, 114, 232);
+            }
+
+            .counter-active {
+              @include flex(center, center, row);
+              @include square(1.5rem);
+              border-radius: 100%;
+              background-color: blue;
+            }
+
+            p {
+              @include font-body(0.9375, 500, black, 1);
+            }
+          }
+        }
+      }
+
+      .cart-right-container {
+        grid-area: summary;
+
+        .cart-total-summary {
+          background-color: rgba(171, 202, 218, 0.3);
+          padding: 1.5rem;
+          width: calc(100% - 3rem);
+          border-radius: 5px;
+
+          .title {
+            @include font-heading(1.5, 500, black, 1);
+            margin-bottom: 2rem;
+          }
+
+          .desc {
+            @include font-body(0.875, 400, black, 1.2);
+          }
+
+          .summary-wrapper {
+            margin: 1rem 0;
+            @include flex(space-between, center, row);
+
+            .total {
+              margin-top: 1rem;
+              @include font-body(1.5, 500, rgba(0, 0, 0, 0.6), 1.5);
+            }
+          }
+        }
+
+        button {
+            margin-top: 2rem;
+            @include dimensions(100%, 2.5rem)
+        }
+      }
+    }
+  }
+}

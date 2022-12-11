@@ -1,0 +1,112 @@
+.order-details-container {
+    margin-top: 2rem;
+  .cart-products-cont {
+    display: grid;
+    grid-template-columns: 0.75fr 1.5fr 1fr 1fr 1fr;
+    width: 100%;
+    gap: 1rem;
+
+    @media screen and (max-width: 800px) {
+      grid-template-areas:
+        "image description cancel"
+        "quantity . price";
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 1rem;
+    }
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 1.5fr 2fr 1fr;
+    }
+
+    .cart-product-img {
+        @include flex(flex-start, center, row);
+        
+      img {
+        @include square(100%);
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      @media screen and (max-width: 800px) {
+        grid-area: image;
+      }
+    }
+
+    .cart-product-desc {
+      @include flex(flex-start, flex-start, column);
+      gap: 0.75rem;
+
+      @media screen and (max-width: 800px) {
+        grid-area: description;
+        gap: 0.25rem;
+      }
+
+      p {
+        @include font-body(0.875, 500, rgba(26, 26, 26, 0.8), 1);
+
+        &:first-child {
+          @include font-body(1.25, 550, black, 1);
+        }
+      }
+
+      .color-cont {
+        @include flex(flex-start, center, row);
+        gap: 0.5rem;
+
+        p {
+          @include font-body(0.875, 500, rgba(26, 26, 26, 0.8), 1);
+        }
+
+        .color-wrapper {
+          @include square(0.9375rem);
+          border-radius: 100%;
+          background-color: #000;
+        }
+      }
+    }
+
+    .cart-product-price {
+      @media screen and (max-width: 800px) {
+        grid-area: price;
+        @include flex(flex-end, center, row);
+      }
+
+      p {
+        @include font-body(1.25, 550, black, 1);
+      }
+    }
+
+    .cart-product-count {
+      @media screen and (max-width: 800px) {
+        grid-area: quantity;
+      }
+
+      .cart-product-wrapper {
+        @include flex(space-between, center, row);
+        gap: 0.5rem;
+
+        img {
+          cursor: pointer;
+        }
+
+        .count-wrapper {
+          @include dimensions(6.25rem, 2.1875rem);
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          @include flex(center, center, row);
+        }
+      }
+    }
+
+    .cart-product-close {
+      @include flex(flex-end, flex-start, row);
+
+      @media screen and (max-width: 800px) {
+        grid-area: cancel;
+      }
+
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+}

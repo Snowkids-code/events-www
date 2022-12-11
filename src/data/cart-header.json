@@ -1,0 +1,14 @@
+[
+    {
+        "_id" : 1,
+        "value" : "Order Details"
+    },
+    {
+        "_id" : 2,
+        "value" : "Payment"
+    },
+    {
+        "_id" : 3,
+        "value" : "Confirmation"
+    }
+]
