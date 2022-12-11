@@ -1,6 +1,7 @@
 import React from "react";
 import SideBar from "./SideBar";
 import navbarItems from "../../data/navbar.json";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -12,11 +13,13 @@ function Navbar() {
         <div className="center-container">
           {navbarItems.map((item) => (
             <ul key={item._id}>
-              <li>
-                <a href="/#" style={{ textDecoration: "none" }}>
-                  {item.value}
-                </a>
-              </li>
+              <Link to={item.path} style={{textDecoration : "none"}}>
+                <li>
+                  <a href="/#" style={{ textDecoration: "none" }}>
+                    {item.value}
+                  </a>
+                </li>
+              </Link>
             </ul>
           ))}
         </div>

@@ -12,6 +12,8 @@
 
 //pages
 @import "pages/homepage";
+@import "pages/events";
+@import "pages/event";
 
 //components
 @import "components/homepage-carousel";
@@ -21,3 +23,4 @@
 @import "components/places";
 @import "components/home-rooms";
 @import "components/review";
+@import "components/single-event";

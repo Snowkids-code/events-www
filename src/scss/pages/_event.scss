@@ -1,0 +1,209 @@
+.event-container {
+  .event-cover-img {
+    height: 60vh;
+    position: relative;
+
+    @media screen and (max-width: 1000px) {
+      height: 80vh;
+    }
+
+    img {
+      object-fit: cover;
+      @include square(100%);
+    }
+
+    .event-booking-details-container {
+      // position: absolute;
+      @extend .primary-container;
+
+      .event-booking-details-wrapper {
+        grid-area: main;
+        height: calc(50vh + 10vh);
+
+        @media screen and (max-width: 1000px) {
+          height: 80vh;
+        }
+
+        .event-booking-content {
+          //   margin-top: 10vh;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          height: 100%;
+
+          @media screen and (max-width: 1000px) {
+              grid-template-columns: 1fr;
+              margin-top: 15vh;
+              height: fit-content;
+          }
+
+          .left-container {
+            @include flex(center, center, column);
+            gap: 2.5rem;
+            text-align: center;
+
+            .title {
+              @include font-heading(1.675, 550, white, 1);
+            }
+
+            .content {
+              @include font-body(1.125, 400, white, 1.5);
+            }
+          }
+
+          .right-container {
+            @include flex(center, flex-end, column);
+
+            @media screen and (max-width: 1000px) {
+                @include flex(center, center, column);
+            }
+
+            .booking-container {
+              @include dimensions(65%, 55%);
+              background-color: #d9d9d9;
+              border-radius: 10px;
+              padding: 2rem;
+
+              @media screen and (max-width: 1000px) {
+                height: fit-content;
+            }
+
+              .title {
+                @include font-heading(1.375, 550, black, 1);
+              }
+
+              .time {
+                margin-top: 1rem;
+                @include font-body(1.125, 500, black, 1);
+
+                &:nth-child(2) {
+                  margin-top: 2rem;
+                }
+              }
+
+              .counter-container {
+                margin-top: 2rem;
+                @include flex(flex-start, center, row);
+                gap: 1rem;
+
+                .center-container {
+                  @include dimensions(5rem, 1.75rem);
+                  border: 1px solid black;
+                  border-radius: 5px;
+                  @include flex(center, center, row);
+                  @include font-body(0.9375, 500, black, 1);
+                }
+              }
+
+              .type-container {
+                margin-top: 2rem;
+              }
+
+              button {
+                margin-top: 2rem;
+                @include dimensions(100%, 2.5rem);
+                cursor: pointer;
+                border: none;
+              }
+
+              .no-refund {
+                @include font-body(1.125, 500, black, 1.125);
+                text-align: center;
+                margin-top: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .single-event-desc-container {
+    @extend .primary-container;
+    padding: 4rem 0;
+
+    .single-event-desc-wrapper {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      grid-template-areas: "left right";
+
+      @media screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "left"
+          "right";
+      }
+
+      .left-container {
+        grid-area: left;
+
+        .title {
+          @include font-heading(1.375, 550, black, 1);
+
+          &:nth-child(3) {
+            margin-top: 2rem;
+          }
+        }
+
+        .desc {
+          margin-top: 1rem;
+          @include font-body(0.9375, 400, black, 1.5);
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          margin-top: 1rem;
+
+          li {
+            padding: 0;
+            margin: 1rem 0;
+
+            a {
+              @include font-body(0.9375, 400, black, 1.5);
+            }
+          }
+        }
+      }
+
+      .right-container {
+        .title {
+          @include font-heading(1.375, 550, black, 1);
+
+          &:nth-child(3) {
+            margin-top: 2rem;
+          }
+        }
+
+        .location-image-container {
+          position: relative;
+          margin-top: 1.5rem;
+
+          img {
+            @include dimensions(100%, 15rem);
+            border-radius: 10px;
+            cursor: pointer;
+          }
+        }
+
+        .tags-container {
+          @include flex(flex-start, center, row);
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-top: 1rem;
+
+          .tags-wrapper {
+            @include dimensions(fit-content, 2.5rem);
+            background-color: #d9d9d9;
+            @include flex(center, center, row);
+            padding: 0 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

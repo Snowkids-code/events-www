@@ -1,0 +1,22 @@
+[
+    {
+        "_id" : 1,
+        "tag" : "Qatar"
+    },
+    {
+        "_id" : 2,
+        "tag" : "World Cup"
+    },
+    {
+        "_id" : 3,
+        "tag" : "Ronaldo"
+    },
+    {
+        "_id" : 4,
+        "tag" : "Argentina"
+    },
+    {
+        "_id" : 5,
+        "tag" : "Doha"
+    }
+]

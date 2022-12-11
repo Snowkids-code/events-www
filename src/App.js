@@ -2,6 +2,8 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Footer from "./components/Layout/Footer";
 import Navbar from "./components/Layout/Navbar";
 import logo from "./logo.svg";
+import Event from "./pages/events-page/Event";
+import Events from "./pages/events-page/Events";
 import Homepage from "./pages/homepage/Homepage";
 import "./styles/App.css";
 
@@ -25,7 +27,14 @@ function App() {
           path: "/",
           element: <Homepage />,
         },
-        
+        {
+          path: "/events",
+          element: <Events />,
+        },
+        {
+          path: "/events/:id",
+          element: <Event />,
+        },
       ],
       errorElement: <Homepage />,
     },

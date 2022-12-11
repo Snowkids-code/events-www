@@ -1,0 +1,60 @@
+.single-event-container {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 2fr;
+  grid-template-areas: "date cover desc";
+  cursor: pointer;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 2rem 0;
+
+  .date-container {
+    grid-area: date;
+
+    .month-text {
+      @include font-heading(1.75, 550, rgba(0, 0, 0, 0.5), 1);
+    }
+
+    .day-text {
+      @include font-heading(3, 550, rgba(0, 0, 0, 0.5), 1);
+    }
+  }
+
+  .cover-container {
+    .img-container {
+      position: relative;
+
+      img {
+        object-fit: cover;
+        @include dimensions(22.125rem, 14.75rem);
+      }
+    }
+  }
+
+  .details-container {
+    text-align: center;
+
+
+    .event-title {
+      @include font-heading(1.3875, 550, black, 1);
+    }
+
+    .top-desc {
+      margin-top: 2rem;
+      @include font-body(0.9375, 400, black, 1);
+    }
+
+    .full-desc {
+      margin-top: 1rem;
+      @include font-body(0.9375, 400, black, 1);
+    }
+
+    .view-details-container {
+      @include flex(flex-end, center, row);
+      margin-top: 2rem;
+
+      p {
+          @include font-heading(1.175, 550, black, 1);
+      }
+    }
+  }
+}

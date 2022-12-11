@@ -1,0 +1,40 @@
+.events-container {
+  .events-cover-img {
+    height: 80vh;
+    position: relative;
+
+    img {
+      object-fit: cover;
+      @include square(100%);
+    }
+  }
+
+  .events-content-container {
+    @extend .primary-container;
+    padding: 2rem 0;
+
+    .events-title-container {
+      @include flex(space-between, center, row);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      padding: 2rem 0;
+
+      p {
+        @include font-body($body-font-size, 500, black, 1);
+      }
+
+      .icons-container {
+          @include flex(flex-start, center, row);
+          gap: 1.5rem;
+
+          img {
+              cursor: pointer;
+          }
+      }
+    }
+
+    .events-content-container {
+        @include flex(flex-start, flex-start, column);
+        gap: 2.5rem;
+    }
+  }
+}
