@@ -9,6 +9,7 @@ import Footer from "./components/Layout/Footer";
 import Navbar from "./components/Layout/Navbar";
 import { AuthContext } from "./context/authContext";
 import logo from "./logo.svg";
+import AdminDashboard from "./pages/Admin";
 import Login from "./pages/authentication/Login";
 import Register from "./pages/authentication/Register";
 import Cart from "./pages/cart/Cart";
@@ -65,6 +66,10 @@ function App() {
         },
       ],
       errorElement: <Homepage />,
+    },
+    {
+      path: "/admin-dashboard",
+      element: <AdminDashboard />,
     },
     {
       path: "/register",
