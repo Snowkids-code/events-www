@@ -32,7 +32,9 @@ function SideBar() {
 
   return (
     <div className="sidebar-container">
-      <img alt="account" src={accountIcon} width="24" height="24" />
+      <Link to="/login">
+        <img alt="account" src={accountIcon} width="24" height="24" />
+      </Link>
       <Link to="/cart">
         <img alt="account" src={cartIcon} width="24" height="24" />
       </Link>
