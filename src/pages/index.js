@@ -1,18 +1,20 @@
 import React, { Suspense, useContext } from "react";
+import { useSelector } from "react-redux";
 import { AuthContext } from "../context/authContext";
 const Admin = React.lazy(() => import("../pages/Admin"));
 const Client = React.lazy(() => import("./Client/index.js"));
 
 function HomePage() {
-  const { currentUser } = useContext(AuthContext);
+  const currentUser = useSelector((state) => state.userReducer);
+  console.log(currentUser.user.isAdmin);
 
-  if (currentUser.isAdmin) {
+  if (currentUser.user.isAdmin) {
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <Admin />
       </Suspense>
     );
-  } else if (!currentUser.isAdmin) {
+  } else if (!currentUser.user.isAdmin) {
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <Client />
@@ -21,6 +23,9 @@ function HomePage() {
   } else {
     return <div>Usertype required for redirect</div>;
   }
+  // return (
+  //   <div>Hello</div>
+  // )
 }
 
 export default HomePage;

@@ -5,7 +5,7 @@ import search from "../../../assets/svg/search.svg";
 import { AuthContext } from "../../../context/authContext";
 
 function NavbarAdmin() {
-  const { currentUser } = useContext(AuthContext);
+  // const { currentUser } = useContext(AuthContext);
 
   return (
     <div className="navbar-admin-container">
@@ -29,7 +29,7 @@ function NavbarAdmin() {
         </div>
         <div className="item-account">
           <img alt="" src={account} height={24} width={24} />
-          <p>{currentUser.name}</p>
+          {/* <p>{currentUser.name}</p> */}
         </div>
       </div>
     </div>

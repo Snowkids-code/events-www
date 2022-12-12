@@ -19,13 +19,15 @@ import Homepage from "./pages/Client";
 import "./styles/App.css";
 import HomePage from "./pages";
 import { getAllEventsThunk } from "./reducers/event.reducer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NotFound from "./pages/not-found";
 import EventsAdmin from "./pages/Admin/EventsAdmin";
 import OrdersAdmin from "./pages/Admin/OrdersAdmin";
 
 function App() {
-  const { currentUser } = useContext(AuthContext);
+  // const { currentUser } = useContext(AuthContext);
+  const currentUser = useSelector((state) => state.userReducer.user);
+  console.log(currentUser)
   const dispatch = useDispatch();
 
   const Layout = () => {

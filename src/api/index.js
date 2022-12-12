@@ -1,12 +1,17 @@
-import axios from 'axios'
+import axios from "axios";
 
 let ourApi = {
-    events:{
-        getAllEvents: async()=> await axios.get('http://localhost:500/api/event')
-    },
-    cart:{
-        addToCart: async()=>await axios.post('http://localhost:2121/api/cart/add-to-cart')
-    }
-}
+  events: {
+    getAllEvents: async () => await axios.get("http://localhost:500/api/event"),
+  },
+  cart: {
+    addToCart: async () =>
+      await axios.post("http://localhost:2121/api/cart/add-to-cart"),
+  },
+  user: {
+    getUserData: async (inputs) =>
+      await axios.post("http://localhost:500/api/auth/login", inputs),
+  },
+};
 
-export default ourApi
+export default ourApi;

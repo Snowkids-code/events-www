@@ -1,6 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
+import { addUserData, fetchUser } from "../../reducers/user.reducer";
 
 function Login() {
   const [inputs, setInputs] = useState({
@@ -12,6 +14,10 @@ function Login() {
   const { login } = useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const status = useSelector(state => state.userReducer.loading)
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -29,6 +35,18 @@ function Login() {
       setErr(error.response.data);
     }
   };
+
+  const handleReduxLogin = (e) => {
+    e.preventDefault();
+    dispatch(addUserData(inputs));
+    dispatch(fetchUser(inputs))
+  };
+
+  useEffect(() => {
+    if (status === "fulfilled") {
+      navigate("/")
+    }
+  }, [status])
 
   return (
     <div className="login-container">
@@ -61,7 +79,7 @@ function Login() {
               name="password"
               onChange={handleChange}
             />
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleReduxLogin}>Login</button>
             <a
               href="/#"
               onClick={() => navigate("/auth/register")}
