@@ -1,4 +1,21 @@
 .sidebar-container {
-    @include flex(flex-start, center, row);
-    gap: 1rem;
+  @include flex(flex-start, center, row);
+  gap: 1rem;
+
+  .cart-container {
+    position: relative;
+
+    p {
+      text-decoration-style: none;
+      background-color: #fff;
+      border-radius: 100%;
+      @include square(1rem);
+      @include flex(center, center, row);
+      position: absolute;
+      top: -5px;
+      left: 15px;
+      padding: 0.05rem;
+      @include font-body(0.75, 400, red, 1);
+    }
+  }
 }

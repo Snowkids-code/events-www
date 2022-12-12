@@ -4,6 +4,7 @@ import cartIcon from "../../assets/svg/cart-outline.svg";
 import Select from "react-select";
 import currency from "../../data/dropdown-values.json";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 function SideBar() {
   const styles = {
@@ -30,13 +31,19 @@ function SideBar() {
     indicatorSeparator: () => ({ display: "none" }),
   };
 
+  //get length of items
+  const items = useSelector((state) => state.cartReducer.items);
+
   return (
     <div className="sidebar-container">
       <Link to="/login">
         <img alt="account" src={accountIcon} width="24" height="24" />
       </Link>
-      <Link to="/cart">
-        <img alt="account" src={cartIcon} width="24" height="24" />
+      <Link to="/cart" style={{ textDecoration: "none" }}>
+        <div className="cart-container">
+          <img alt="account" src={cartIcon} width="24" height="24" />
+          <p>{items ? items.length : 0}</p>
+        </div>
       </Link>
       <div className="language-select-container">
         <Select

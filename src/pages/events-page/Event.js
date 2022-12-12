@@ -6,7 +6,8 @@ import data from "../../data/dropdown-values.json";
 import faq from "../../data/faq.json";
 import map from "../../assets/image/map.png";
 import tags from "../../data/tags.json";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addEvent } from "../../reducers/cart.reducer";
 
 function Event() {
   const [counter, setCounter] = useState(1);
@@ -19,8 +20,15 @@ function Event() {
     setCounter(counter > 1 ? (count) => count - 1 : 1);
   };
 
-  //get user details
+  //get event details
   const event = useSelector((state) => state.singleReducer.item);
+
+  const dispatch = useDispatch();
+
+  //add item to cart
+  const handleAddCart = () => {
+    dispatch(addEvent(event));
+  };
 
   return (
     <div className="event-container">
@@ -75,7 +83,7 @@ function Event() {
                       <div className="type-container">
                         <DropDown data={event.ticketTypes} />
                       </div>
-                      <button>Add to Cart</button>
+                      <button onClick={handleAddCart}>Add to Cart</button>
                       <p className="no-refund">No Refunds</p>
                     </div>
                   </div>
