@@ -1,0 +1,36 @@
+.admin-dashboard-container {
+  padding: 1rem;
+
+  .top-summary-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .chats-container {
+    display: grid;
+    grid-template-columns: 2.5fr 5fr;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .transactions-container {
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 20px;
+    margin-top: 2rem;
+
+    .list-title {
+      margin-bottom: 15px;
+      @include font-body(1, 550, gray, 1);
+    }
+  }
+}

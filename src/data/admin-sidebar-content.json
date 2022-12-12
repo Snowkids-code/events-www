@@ -1,0 +1,22 @@
+[
+  {
+    "img": "/svg/dashboard.svg",
+    "title": "Dashboard",
+    "link": "/"
+  },
+  {
+    "img": "/svg/account.svg",
+    "title": "Users",
+    "link": "/users"
+  },
+  {
+    "img": "/svg/product.svg",
+    "title": "Products",
+    "link": "/products"
+  },
+  {
+    "img": "/svg/credit-card.svg",
+    "title": "Orders",
+    "link": "/orders"
+  }
+]

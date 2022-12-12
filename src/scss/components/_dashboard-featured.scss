@@ -1,0 +1,72 @@
+.admin-dashboard-featured-container {
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  padding: 0.625rem;
+
+  .top-container {
+    @include flex(space-between, center, row);
+    padding-top: 0.625rem;
+
+    .title {
+      @include font-heading(1, 550, grey, 1);
+    }
+  }
+
+  .center-container {
+    @include flex(center, center, column);
+    padding: 1.25rem 0;
+    gap: 0.9375rem;
+
+    .featured-chart {
+      @include square(6.25rem);
+    }
+
+    .summary-container {
+      @include flex(center, center, column);
+      // padding: 1.25rem 0;
+      gap: 1.5rem;
+
+      .title {
+        @include font-heading(1, 500, gray, 1);
+      }
+
+      .amount {
+        @include font-body(1.875, 550, #333333, 1);
+      }
+
+      .desc {
+        @include font-body(0.75, 300, gray, 1);
+      }
+    }
+  }
+
+  .bottom-container {
+    @include flex(space-between, flex-start, row);
+    width: 100%;
+    padding-top: 0.25rem;
+
+    .item {
+      text-align: center;
+
+      .item_title {
+        font-size: 14px;
+        color: gray;
+      }
+
+      .item_result {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        font-size: 14px;
+
+        &.positive {
+          color: green;
+        }
+
+        &.negative {
+          color: red;
+        }
+      }
+    }
+  }
+}

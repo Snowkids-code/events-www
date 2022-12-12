@@ -9,6 +9,8 @@
 @import "layout/footer";
 @import "layout/navbar";
 @import "layout/sidebar";
+@import "layout/navbar-admin";
+@import "layout/sidebar-admin";
 
 //pages
 @import "pages/homepage";
@@ -18,6 +20,8 @@
 @import "pages/register";
 @import "pages/login";
 @import "pages/not-found";
+@import "pages/admin-homepage";
+@import "pages/admin-dashboard";
 
 //components
 @import "components/homepage-carousel";
@@ -29,3 +33,7 @@
 @import "components/review";
 @import "components/single-event";
 @import "components/order-details";
+@import "components/dashboard-widget";
+@import "components/dashboard-featured";
+@import "components/dashboard-chart";
+@import "components/dashboard-table";
