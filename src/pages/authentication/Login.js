@@ -9,7 +9,7 @@ function Login() {
 
   const handleLogin = () => {
     login();
-    // navigate("/");
+    navigate("/");
   };
 
   return (

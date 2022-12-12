@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import {
   createBrowserRouter,
   Navigate,
@@ -15,11 +15,15 @@ import Register from "./pages/authentication/Register";
 import Cart from "./pages/cart/Cart";
 import Event from "./pages/events-page/Event";
 import Events from "./pages/events-page/Events";
-import Homepage from "./pages/homepage/Homepage";
+import Homepage from "./pages/Client";
 import "./styles/App.css";
+import HomePage from "./pages";
+import { getAllEventsThunk } from "./reducers/event.reducer";
+import { useDispatch } from "react-redux";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
+  const dispatch = useDispatch();
 
   const Layout = () => {
     return (
@@ -50,7 +54,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Homepage />,
+          element: <HomePage />,
         },
         {
           path: "/events",
@@ -80,6 +84,18 @@ function App() {
       element: <Login />,
     },
   ]);
+
+  useEffect(()=>{
+    let isMounted = true;
+
+    if(isMounted){
+      dispatch(getAllEventsThunk())
+    }
+
+    return ()=>{
+      isMounted = false;
+    }
+  },[])
 
   return (
     <div className="App">
