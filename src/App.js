@@ -22,6 +22,7 @@ import { getAllEventsThunk } from "./reducers/event.reducer";
 import { useDispatch } from "react-redux";
 import NotFound from "./pages/not-found";
 import EventsAdmin from "./pages/Admin/EventsAdmin";
+import OrdersAdmin from "./pages/Admin/OrdersAdmin";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -99,6 +100,10 @@ function App() {
     {
       path: "/admin/events",
       element: <EventsAdmin />,
+    },
+    {
+      path: "/admin/orders",
+      element: <OrdersAdmin />,
     },
     { errorElement: <NotFound /> },
   ]);

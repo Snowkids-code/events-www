@@ -17,6 +17,6 @@
   {
     "img": "/svg/credit-card.svg",
     "title": "Orders",
-    "link": "/orders"
+    "link": "/admin/orders"
   }
 ]

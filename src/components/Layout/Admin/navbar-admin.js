@@ -1,9 +1,12 @@
-import React from "react";
-import account from "../../../assets/svg/account.svg"
-import message from "../../../assets/svg/message.svg"
-import search from "../../../assets/svg/search.svg"
+import React, { useContext } from "react";
+import account from "../../../assets/svg/account.svg";
+import message from "../../../assets/svg/message.svg";
+import search from "../../../assets/svg/search.svg";
+import { AuthContext } from "../../../context/authContext";
 
 function NavbarAdmin() {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className="navbar-admin-container">
       <div className="left-container">
@@ -26,7 +29,7 @@ function NavbarAdmin() {
         </div>
         <div className="item-account">
           <img alt="" src={account} height={24} width={24} />
-          <p>Joshua</p>
+          <p>{currentUser.name}</p>
         </div>
       </div>
     </div>
