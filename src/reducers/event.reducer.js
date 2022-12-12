@@ -9,7 +9,7 @@ const initialState = {
 
 let modulePrefix = "events";
 
-// aysnc think to get all products
+// aysnc think to get all events
 export const getAllEventsThunk = createAsyncThunk(
   `${modulePrefix}/get-all-events`,
   async (_, { rejectWithValue }) => {
@@ -60,7 +60,7 @@ const eventSlice = createSlice({
       })
       .addCase(getAllEventsThunk.fulfilled, (state, action) => {
         state.loading = "fulfilled";
-        state.items = action.payload?.data;
+        state.items = action.payload;
       })
       .addCase(getAllEventsThunk.rejected, (state, action) => {
         state.loading = "rejected";
@@ -69,5 +69,5 @@ const eventSlice = createSlice({
   },
 });
 
-export const { addProduct } = eventSlice.actions;
+export const { addEvent } = eventSlice.actions;
 export default eventSlice.reducer;

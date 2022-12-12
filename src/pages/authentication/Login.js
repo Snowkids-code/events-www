@@ -64,7 +64,6 @@ function Login() {
           </Link>
         </div>
         <div className="right">
-          {err && <p>{err}</p>}
           <h1>Login</h1>
           <div className="login-form">
             <input

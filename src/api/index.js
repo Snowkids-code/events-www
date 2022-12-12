@@ -3,6 +3,8 @@ import axios from "axios";
 let ourApi = {
   events: {
     getAllEvents: async () => await axios.get("http://localhost:500/api/event"),
+    getSingleEvent: async (itemId) =>
+      await axios.get(`http://localhost:500/api/event/find/${itemId}`),
   },
   cart: {
     addToCart: async () =>

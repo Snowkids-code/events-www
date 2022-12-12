@@ -26,6 +26,7 @@
       img {
         object-fit: cover;
         @include dimensions(22.125rem, 14.75rem);
+        border-radius: 10px;
       }
     }
   }

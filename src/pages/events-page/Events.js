@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import listIcon from "../../assets/svg/format-list-bulleted.svg";
 import filterIcon from "../../assets/svg/filter-variant.svg";
 import events from "../../data/events.json";
 import SingleEvent from "../../components/Events/SingleEvent";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getSingleEventThunk } from "../../reducers/single-event.reducer";
 
 function Events() {
+  const item = useSelector((state) => state.eventReducer.items);
+
+  const [eventId, setEventId] = useState();
+
+  const status = useSelector((state) => state.singleReducer.loading);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  // const getSingleEvent = (id) => {
+  //   dispatch(getSingleEventThunk(id));
+  // };
+
+  // useEffect(() => {
+  //   if (status === "fulfilled") {
+  //     navigate(`/events/${eventId}`);
+  //   }
+  // }, [status]);
+
   return (
     <div className="events-container">
       <div className="events-cover-img">
@@ -21,21 +43,17 @@ function Events() {
             </div>
           </div>
           <div className="events-content-container">
-            {events.map((data) => (
-              <Link
-                to={`/events/${data._id}`}
-                style={{ textDecoration: "none" }}
+            {item.map((data) => (
+              <SingleEvent
                 key={data._id}
-              >
-                <SingleEvent
-                  cover={data.cover}
-                  day={data.day}
-                  month={data.month}
-                  event={data.event}
-                  topDesc={data.topDesc}
-                  fullDesc={data.fullDesc}
-                />
-              </Link>
+                id={data._id}
+                cover={data.img}
+                day={data.day}
+                month={data.month}
+                event={data.title}
+                topDesc={data.desc}
+                fullDesc={data.desc}
+              />
             ))}
           </div>
         </div>

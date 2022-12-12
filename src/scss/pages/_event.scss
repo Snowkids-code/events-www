@@ -31,9 +31,9 @@
           height: 100%;
 
           @media screen and (max-width: 1000px) {
-              grid-template-columns: 1fr;
-              margin-top: 15vh;
-              height: fit-content;
+            grid-template-columns: 1fr;
+            margin-top: 15vh;
+            height: fit-content;
           }
 
           .left-container {
@@ -54,7 +54,7 @@
             @include flex(center, flex-end, column);
 
             @media screen and (max-width: 1000px) {
-                @include flex(center, center, column);
+              @include flex(center, center, column);
             }
 
             .booking-container {
@@ -65,7 +65,7 @@
 
               @media screen and (max-width: 1000px) {
                 height: fit-content;
-            }
+              }
 
               .title {
                 @include font-heading(1.375, 550, black, 1);
@@ -84,6 +84,13 @@
                 margin-top: 2rem;
                 @include flex(flex-start, center, row);
                 gap: 1rem;
+
+                .left-container,
+                .right-container {
+                  img {
+                    cursor: pointer;
+                  }
+                }
 
                 .center-container {
                   @include dimensions(5rem, 1.75rem);

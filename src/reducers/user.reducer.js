@@ -11,7 +11,7 @@ export const fetchUser = createAsyncThunk(
     try {
       const res = await UserData.getUserData(inputs);
       console.log(res.data);
-      return res.data;
+      return res.data; //user data
     } catch (error) {
       console.log("Err", error);
       // return rejectWithValue(error);
@@ -28,7 +28,7 @@ const initialState = {
 
 //create the userSlice
 const userSlice = createSlice({
-  name: "user",
+  name: "user", //name of the slice
   initialState,
   reducers: {
     addUserData: (state, action) => {
@@ -36,7 +36,7 @@ const userSlice = createSlice({
         ...action.payload,
         quantity: 1,
       };
-      state.user = [...state.user, newUser];
+      state.user = [...state.user, newUser]; //fill user array
     },
   },
   extraReducers(builder) {
@@ -46,12 +46,11 @@ const userSlice = createSlice({
       })
       .addCase(fetchUser.fulfilled, (state, action) => {
         state.loading = "fulfilled";
-        state.user = action.payload;
-        console.log(action.payload);
+        state.user = action.payload; //set user to the new payload
       })
       .addCase(fetchUser.rejected, (state, action) => {
         state.loading = "rejected";
-        state.error = action?.payload;
+        state.error = action?.payload; //set error if process is rejected
       });
   },
 });
