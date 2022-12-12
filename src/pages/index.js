@@ -6,29 +6,21 @@ const Client = React.lazy(() => import("./Client/index.js"));
 function HomePage() {
   const { currentUser } = useContext(AuthContext);
 
-  if (currentUser.type === "Admin") {
+  if (currentUser.isAdmin) {
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <Admin />
       </Suspense>
     );
-  } else if (currentUser.type === "Client") {
+  } else if (!currentUser.isAdmin) {
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <Client />
       </Suspense>
     );
   } else {
-    return (
-      <div>Usertype required for redirect</div>
-    )
+    return <div>Usertype required for redirect</div>;
   }
-
-  // return (
-  //   <div>
-
-  //   </div>
-  // )
 }
 
 export default HomePage;

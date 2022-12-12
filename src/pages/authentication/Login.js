@@ -1,15 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 
 function Login() {
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+  });
+  const [err, setErr] = useState(null);
+
   const { login } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    login();
-    navigate("/");
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await login(inputs)
+        .then(() => {
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
+    } catch (error) {
+      setErr(error.response.data);
+    }
   };
 
   return (
@@ -28,12 +46,30 @@ function Login() {
           </Link>
         </div>
         <div className="right">
+          {err && <p>{err}</p>}
           <h1>Login</h1>
-          <form>
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
+          <div className="login-form">
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={handleChange}
+            />
             <button onClick={handleLogin}>Login</button>
-          </form>
+            <a
+              href="/#"
+              onClick={() => navigate("/auth/register")}
+              style={{ textDecoration: "none" }}
+            >
+              CREATE NEW ACCOUNT
+            </a>
+          </div>
         </div>
       </div>
     </div>
