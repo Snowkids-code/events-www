@@ -12,6 +12,7 @@ import Navbar from "../../components/Layout/Navbar";
 function Homepage() {
   return (
     <div className="homepage-container">
+      <Navbar />
       <HomepageCarousel />
       <HomeFeatures />
       <HomeDescription />
@@ -19,6 +20,7 @@ function Homepage() {
       <Places />
       <Rooms />
       <Review />
+      <Footer />
     </div>
   );
 }

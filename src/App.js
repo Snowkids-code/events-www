@@ -45,17 +45,13 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/events",
       element: (
         <ProtectedRoute>
           <Layout />
         </ProtectedRoute>
       ),
       children: [
-        {
-          path: "/",
-          element: <HomePage />,
-        },
         {
           path: "/events",
           element: <Events />,
@@ -64,16 +60,31 @@ function App() {
           path: "/events/:id",
           element: <Event />,
         },
-        {
-          path: "/cart",
-          element: <Cart />,
-        },
       ],
       errorElement: <Homepage />,
     },
     {
-      path: "/admin-dashboard",
-      element: <AdminDashboard />,
+      path: "/cart",
+      element: (
+        <ProtectedRoute>
+          <Layout />
+        </ProtectedRoute>
+      ),
+      children: [
+        {
+          path: "/cart",
+          element: <Cart />,
+        },
+      ]
+    },
+    {
+      path: "/",
+      element: (
+        <ProtectedRoute>
+          <HomePage />
+        </ProtectedRoute>
+      ),
+      errorElement: <Homepage />,
     },
     {
       path: "/register",
@@ -83,19 +94,20 @@ function App() {
       path: "/login",
       element: <Login />,
     },
+    { errorElement: <Homepage /> },
   ]);
 
-  useEffect(()=>{
+  useEffect(() => {
     let isMounted = true;
 
-    if(isMounted){
-      dispatch(getAllEventsThunk())
+    if (isMounted) {
+      dispatch(getAllEventsThunk());
     }
 
-    return ()=>{
+    return () => {
       isMounted = false;
-    }
-  },[])
+    };
+  }, []);
 
   return (
     <div className="App">

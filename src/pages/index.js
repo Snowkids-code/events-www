@@ -19,6 +19,9 @@ function HomePage() {
       </Suspense>
     );
   } else {
+    return (
+      <div>Usertype required for redirect</div>
+    )
   }
 
   // return (
