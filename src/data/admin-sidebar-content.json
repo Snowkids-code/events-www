@@ -7,12 +7,12 @@
   {
     "img": "/svg/account.svg",
     "title": "Users",
-    "link": "/users"
+    "link": "/admin/users"
   },
   {
     "img": "/svg/product.svg",
-    "title": "Products",
-    "link": "/products"
+    "title": "Events",
+    "link": "/admin/events"
   },
   {
     "img": "/svg/credit-card.svg",

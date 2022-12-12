@@ -21,6 +21,7 @@ import HomePage from "./pages";
 import { getAllEventsThunk } from "./reducers/event.reducer";
 import { useDispatch } from "react-redux";
 import NotFound from "./pages/not-found";
+import EventsAdmin from "./pages/Admin/EventsAdmin";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -94,6 +95,10 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/admin/events",
+      element: <EventsAdmin />,
     },
     { errorElement: <NotFound /> },
   ]);
