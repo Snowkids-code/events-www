@@ -20,6 +20,7 @@ import "./styles/App.css";
 import HomePage from "./pages";
 import { getAllEventsThunk } from "./reducers/event.reducer";
 import { useDispatch } from "react-redux";
+import NotFound from "./pages/not-found";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -61,7 +62,7 @@ function App() {
           element: <Event />,
         },
       ],
-      errorElement: <Homepage />,
+      errorElement: <NotFound />,
     },
     {
       path: "/cart",
@@ -75,7 +76,7 @@ function App() {
           path: "/cart",
           element: <Cart />,
         },
-      ]
+      ],
     },
     {
       path: "/",
@@ -84,7 +85,7 @@ function App() {
           <HomePage />
         </ProtectedRoute>
       ),
-      errorElement: <Homepage />,
+      errorElement: <NotFound />,
     },
     {
       path: "/register",
@@ -94,7 +95,7 @@ function App() {
       path: "/login",
       element: <Login />,
     },
-    { errorElement: <Homepage /> },
+    { errorElement: <NotFound /> },
   ]);
 
   useEffect(() => {
