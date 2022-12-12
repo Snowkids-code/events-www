@@ -5,7 +5,7 @@ import SidebarAdmin from "../../components/Layout/Admin/sidebar-admin";
 
 function AdminDashboard() {
   return (
-    <div className="admin-dashboard-container">
+    <div className="admin-dashboard-container-first">
       <NavbarAdmin />
       <div className="admin-dashboard-wrapper">
         <SidebarAdmin />
