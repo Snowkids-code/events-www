@@ -35,6 +35,10 @@ const userSlice = createSlice({
       };
       state.user = [...state.user, newUser]; //fill user array
     },
+    UserLogout: (state, action) => {
+      state.user = [];
+      console.log("Logout")
+    },
   },
   extraReducers(builder) {
     builder
@@ -52,5 +56,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { addUserData } = userSlice.actions;
+export const { addUserData, UserLogout } = userSlice.actions;
 export default userSlice.reducer;

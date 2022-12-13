@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import accountIcon from "../../assets/svg/account-circle.svg";
 import cartIcon from "../../assets/svg/cart-outline.svg";
 import Select from "react-select";
 import currency from "../../data/dropdown-values.json";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import Logout from "../Modal/Logout";
 
 function SideBar() {
   const styles = {
@@ -34,11 +35,22 @@ function SideBar() {
   //get length of items
   const items = useSelector((state) => state.cartReducer.items);
 
+  //hook to determine modal appearance
+  const [logout, setLogout] = useState(false);
+
+  const handleCloseModal = () => {
+    setLogout(false);
+  };
+
   return (
     <div className="sidebar-container">
-      <Link to="/login">
-        <img alt="account" src={accountIcon} width="24" height="24" />
-      </Link>
+      <img
+        alt="account"
+        src={accountIcon}
+        width="24"
+        height="24"
+        onClick={() => setLogout(!logout)}
+      />
       <Link to="/cart" style={{ textDecoration: "none" }}>
         <div className="cart-container">
           <img alt="account" src={cartIcon} width="24" height="24" />
@@ -53,6 +65,7 @@ function SideBar() {
           styles={styles}
         />
       </div>
+      {logout && <Logout closeModal={handleCloseModal} />}
     </div>
   );
 }

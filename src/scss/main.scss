@@ -4,6 +4,7 @@
 
 //base
 @import "base/container";
+@import "base/modal";
 
 //layout
 @import "layout/footer";
@@ -39,3 +40,4 @@
 @import "components/dashboard-chart";
 @import "components/dashboard-table";
 @import "components/admin-orders";
+@import "components/logout";

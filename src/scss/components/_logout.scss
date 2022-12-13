@@ -1,0 +1,35 @@
+.logout-container {
+  @extend .primary-modal-container;
+  @include flex(center, center, row);
+
+  .logout-wrapper {
+    background-color: #fff;
+    @include dimensions(25rem, 10rem);
+    padding: 1rem;
+    text-align: center;
+    @include flex(space-between, center, column);
+
+    .btn-container {
+      @include flex(space-around, center, row);
+      width: 100%;
+
+      .btn-yes {
+        @include dimensions(10rem, 2.5rem);
+        border: 1px solid gray;
+        cursor: pointer;
+        @include flex(center, center, row);
+        @include font-body(0.9375, 500, gray, 1);
+        border-radius: 5px;
+      }
+
+      .btn-no {
+        @include dimensions(10rem, 2.5rem);
+        background-color: #a927f9;
+        cursor: pointer;
+        @include font-body(0.9375, 500, white, 1);
+        @include flex(center, center, row);
+        border-radius: 5px;
+      }
+    }
+  }
+}
