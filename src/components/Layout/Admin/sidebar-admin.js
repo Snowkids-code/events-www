@@ -4,7 +4,7 @@ import title from "../../../data/admin-sidebar-content.json"
 
 function SidebarAdmin() {
   return (
-    <div style={{ flex: "1.5" }} className="left-bar-container-admin">
+    <div style={{ flex: "1.5" }} className="left-bar-container-admin max-[1000px]:border-none">
       <div className="left-bar-wrapper">
         <p className="title">MAIN</p>
         <ul>

@@ -104,11 +104,11 @@ function Cart() {
               </p>
               <div className="summary-wrapper">
                 <p>Subtotal</p>
-                <p>KSH {totalPrice.toFixed(2)}</p>
+                <p>$ {totalPrice.toFixed(2)}</p>
               </div>
               <div className="summary-wrapper">
                 <p>Tax</p>
-                <p>Ksh {(totalPrice * 0.16).toFixed(2)}</p>
+                <p>$ {(totalPrice * 0.16).toFixed(2)}</p>
               </div>
               {/* <div className="summary-wrapper">
                 <p>Shipping</p>
@@ -117,7 +117,7 @@ function Cart() {
               <div className="summary-wrapper">
                 <p className="total">Total</p>
                 <p className="total">
-                  KSH {(totalPrice + totalPrice * 0.16).toFixed(2)}
+                  $ {(totalPrice + totalPrice * 0.16).toFixed(2)}
                 </p>
               </div>
             </div>

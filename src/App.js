@@ -45,7 +45,7 @@ function App() {
     return (
       <div>
         <NavbarAdmin />
-        <div style={{ display: "flex" }}>
+        <div className="flex max-[1000px]:block">
           <SidebarAdmin />
           <div style={{ flex: "10" }}>
             <Outlet />
