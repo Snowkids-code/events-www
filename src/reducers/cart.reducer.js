@@ -5,6 +5,7 @@ const initialState = {
   items: [],
   loading: "idle", //idle, pending, fulfilled, rejected
   error: null,
+  totalPrice: 0,
 };
 
 //create cart slice
@@ -15,31 +16,45 @@ const cartSlice = createSlice({
     addEvent: (state, action) => {
       let newEvent = {
         ...action.payload,
-        quantity: 1,
+        quantity: action.payload.count,
       };
 
-      console.log(action.payload);
+      state.items = [...state.items, newEvent];
+      console.log(state.items);
+      state.totalPrice += action.payload.price[0] * action.payload.count;
 
-      //get items from state
-      const allEvents = state.items;
+      //   //get items from state
+      //   const allEvents = state.items;
 
-      //check if event array exists
-      if (allEvents.length > 0) {
-        //check for matching IDs
-        let foundEvent = allEvents.find(
-          (event) => event.id === Number(newEvent.id)
-        );
+      //   console.log(state.items);
 
-        //add event quantity
-        if (foundEvent !== undefined) {
-          foundEvent.quantity++;
-        }
-      } else {
-        state.items = [...state.items, newEvent];
-      }
+      //   //check if event array exists
+      //   if (allEvents.length > 0) {
+      //     //check for matching IDs
+      //     let foundEvent = allEvents.find(
+      //       (event) => event.id === Number(newEvent.id)
+      //     );
+
+      //     //add event quantity
+      //     if (foundEvent !== undefined) {
+      //       foundEvent.quantity++;
+      //     }
+      //   } else {
+      //     state.items = [...state.items, newEvent];
+      //   }
+    },
+    addEventNumber: (state, action) => {
+      // state.items.quantity = action.payload
+      const newA = [...state.items];
+      console.log(state);
+      //   state.items = [...state.items, newEvent];
+      console.log(action.payload.quantity);
+    },
+    removeEvent: (state, action) => {
+      state.items.splice(action.payload.key, 1);
     },
   },
 });
 
-export const { addEvent } = cartSlice.actions;
+export const { addEvent, addEventNumber, removeEvent } = cartSlice.actions;
 export default cartSlice.reducer;

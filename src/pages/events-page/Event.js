@@ -27,7 +27,7 @@ function Event() {
 
   //add item to cart
   const handleAddCart = () => {
-    dispatch(addEvent(event));
+    dispatch(addEvent({...event, count : counter}));
   };
 
   return (
