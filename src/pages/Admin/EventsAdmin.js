@@ -15,7 +15,7 @@ const data = [
 function EventsAdmin() {
   const [addProduct, setAddProduct] = useState(false);
 
-  const events = useSelector(state => state.eventReducer.items)
+  const events = useSelector((state) => state.eventReducer.items);
 
   const productColumn = [
     { field: "_id", headerName: "ID", width: 220 },
@@ -77,29 +77,23 @@ function EventsAdmin() {
 
   return (
     <div className="admin-events">
-      <NavbarAdmin />
-      <div style={{ display: "flex" }}>
-        <SidebarAdmin />
-        <div style={{ flex: "10" }}>
-          <div className="admin-events-container">
-            <div className="top-container">
-              <div
-                className="add-product-btn"
-                onClick={() => setAddProduct(!addProduct)}
-              >
-                Add Event
-              </div>
-            </div>
-            <div className="products-table-container">
-              <DataGrid
-                rows={events ? events : data}
-                getRowId={(row) => row.title}
-                columns={productColumn}
-                pageSize={25}
-                pagination
-              />
-            </div>
+      <div className="admin-events-container">
+        <div className="top-container">
+          <div
+            className="add-product-btn"
+            onClick={() => setAddProduct(!addProduct)}
+          >
+            Add Event
           </div>
+        </div>
+        <div className="products-table-container">
+          <DataGrid
+            rows={events ? events : data}
+            getRowId={(row) => row.title}
+            columns={productColumn}
+            pageSize={25}
+            pagination
+          />
         </div>
       </div>
     </div>

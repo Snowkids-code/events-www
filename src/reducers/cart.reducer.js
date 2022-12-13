@@ -46,9 +46,11 @@ const cartSlice = createSlice({
       console.log(action.payload.quantity);
     },
     removeEvent: (state, action) => {
+      //remove event from the array
       state.items.splice(action.payload.key, 1);
     },
     clearCart: (state, action) => {
+      //revert everything to the initial state
       state.items = [];
       state.totalPrice = 0;
     },

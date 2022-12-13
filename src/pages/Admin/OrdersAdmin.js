@@ -6,13 +6,7 @@ import SidebarAdmin from '../../components/Layout/Admin/sidebar-admin'
 function OrdersAdmin() {
   return (
     <div>
-      <NavbarAdmin />
-      <div style={{display: "flex"}}>
-        <SidebarAdmin />
-        <div style={{ flex: "10" }}>
-          <Orders />
-        </div>
-      </div>
+      <Orders />
     </div>
   )
 }

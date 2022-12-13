@@ -23,11 +23,12 @@ import { useDispatch, useSelector } from "react-redux";
 import NotFound from "./pages/not-found";
 import EventsAdmin from "./pages/Admin/EventsAdmin";
 import OrdersAdmin from "./pages/Admin/OrdersAdmin";
+import NavbarAdmin from "./components/Layout/Admin/navbar-admin";
+import SidebarAdmin from "./components/Layout/Admin/sidebar-admin";
 
 function App() {
-  // const { currentUser } = useContext(AuthContext);
   const currentUser = useSelector((state) => state.userReducer.user);
-  console.log(currentUser)
+  console.log(currentUser.length);
   const dispatch = useDispatch();
 
   const Layout = () => {
@@ -40,75 +41,101 @@ function App() {
     );
   };
 
+  const AdminLayout = () => {
+    return (
+      <div>
+        <NavbarAdmin />
+        <div style={{ display: "flex" }}>
+          <SidebarAdmin />
+          <div style={{ flex: "10" }}>
+            <Outlet />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
+    if (currentUser.length === 0) {
       return <Navigate to="/login" />;
     }
 
     return children;
   };
 
-  const router = createBrowserRouter([
-    {
-      path: "/events",
-      element: (
-        <ProtectedRoute>
-          <Layout />
-        </ProtectedRoute>
-      ),
-      children: [
-        {
-          path: "/events",
-          element: <Events />,
-        },
-        {
-          path: "/events/:id",
-          element: <Event />,
-        },
-      ],
-      errorElement: <NotFound />,
-    },
-    {
-      path: "/cart",
-      element: (
-        <ProtectedRoute>
-          <Layout />
-        </ProtectedRoute>
-      ),
-      children: [
-        {
-          path: "/cart",
-          element: <Cart />,
-        },
-      ],
-    },
-    {
-      path: "/",
-      element: (
-        <ProtectedRoute>
-          <HomePage />
-        </ProtectedRoute>
-      ),
-      errorElement: <NotFound />,
-    },
-    {
-      path: "/register",
-      element: <Register />,
-    },
-    {
-      path: "/login",
-      element: <Login />,
-    },
-    {
-      path: "/admin/events",
-      element: <EventsAdmin />,
-    },
-    {
-      path: "/admin/orders",
-      element: <OrdersAdmin />,
-    },
-    { errorElement: <NotFound /> },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/events",
+        element: (
+          <ProtectedRoute>
+            <Layout />
+          </ProtectedRoute>
+        ),
+        children: [
+          {
+            path: "/events",
+            element: <Events />,
+          },
+          {
+            path: "/events/:id",
+            element: <Event />,
+          },
+        ],
+        errorElement: <NotFound />,
+      },
+      {
+        path: "/cart",
+        element: (
+          <ProtectedRoute>
+            <Layout />
+          </ProtectedRoute>
+        ),
+        children: [
+          {
+            path: "/cart",
+            element: <Cart />,
+          },
+        ],
+      },
+      {
+        path: "/",
+        element: (
+          <ProtectedRoute>
+            <HomePage />
+          </ProtectedRoute>
+        ),
+        errorElement: <NotFound />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/admin",
+        element: (
+          <ProtectedRoute>
+            <AdminLayout />
+          </ProtectedRoute>
+        ),
+        children: [
+          {
+            path: "/admin/events",
+            element: <EventsAdmin />,
+          },
+          {
+            path: "/admin/orders",
+            element: <OrdersAdmin />,
+          },
+        ],
+      },
+    ],
+    { errorElement: <NotFound /> }
+  );
 
   useEffect(() => {
     let isMounted = true;
