@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
+import { useSelector } from "react-redux";
 
 const data = [];
 
 function Orders() {
-    const [orders, setOrders] = useState();
+    const orders = useSelector(state => state.allOrdersReducer.order);
 
     const productColumn = [
         { field: "_id", headerName: "ID", width: 220 },
@@ -14,16 +15,16 @@ function Orders() {
           width: 150,
           editable: false,
           renderCell: (params) => {
-            return <div className="product_name_img">KSH{params.row.amount}</div>;
+            return <div className="product_name_img">$ {params.row.amount}</div>;
           },
         },
         {
           field: "products",
-          headerName: "Items",
+          headerName: "Events",
           width: 150,
           editable: false,
           renderCell: (params) => {
-            return <div>{params.row.products.length}</div>;
+            return <div>{params.row.events.length}</div>;
           },
         },
         {

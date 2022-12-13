@@ -21,6 +21,14 @@
       }
     }
 
+    .product-name-img {
+      .product-img-wrapper {
+        .product-img {
+          border-radius: 5px;
+        }
+      }
+    }
+
     .cell-action {
       display: flex;
       align-items: center;

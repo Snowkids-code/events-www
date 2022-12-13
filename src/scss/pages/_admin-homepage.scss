@@ -1,5 +1,9 @@
 .admin-dashboard-container-first {
     .admin-dashboard-wrapper {
         display: flex;
+
+        @media screen and (max-width: 1000px) {
+            @include flex(flex-start, center,column)
+        }
     }
 }

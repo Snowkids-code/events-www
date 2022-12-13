@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import NavbarAdmin from "../../components/Layout/Admin/navbar-admin";
 import SidebarAdmin from "../../components/Layout/Admin/sidebar-admin";
+import { useSelector } from "react-redux";
 
 const data = [
   {
@@ -13,7 +14,8 @@ const data = [
 
 function EventsAdmin() {
   const [addProduct, setAddProduct] = useState(false);
-  const [events, setEvents] = useState();
+
+  const events = useSelector(state => state.eventReducer.items)
 
   const productColumn = [
     { field: "_id", headerName: "ID", width: 220 },
@@ -49,16 +51,9 @@ function EventsAdmin() {
       width: 150,
       editable: false,
       renderCell: (params) => {
-        return <div style={{ fontWeight: "550" }}>$ {params.row.price}</div>;
+        return <div style={{ fontWeight: "550" }}>$ {params.row.price[0]}</div>;
       },
     },
-    {
-      field: "styleCode",
-      headerName: "Style Code",
-      width: 150,
-      editable: false,
-    },
-    { field: "color", headerName: "Color", width: 150, editable: false },
     {
       field: "action",
       headerName: "Actions",

@@ -17,6 +17,7 @@ let ourApi = {
   order: {
     addOrder: async (data) =>
       await axios.post("http://localhost:500/api/order", data),
+    getAllOrders: async () => await axios.get("http://localhost:500/api/order"),
   },
 };
 
