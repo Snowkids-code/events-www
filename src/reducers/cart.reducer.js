@@ -53,8 +53,13 @@ const cartSlice = createSlice({
     removeEvent: (state, action) => {
       state.items.splice(action.payload.key, 1);
     },
+    clearCart: (state, action) => {
+      state.items = [];
+      state.totalPrice = 0;
+    },
   },
 });
 
-export const { addEvent, addEventNumber, removeEvent } = cartSlice.actions;
+export const { addEvent, addEventNumber, removeEvent, clearCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;

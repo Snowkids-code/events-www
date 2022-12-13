@@ -55,6 +55,26 @@
             }
           }
         }
+
+        .cart-details-summary {
+          @include flex(space-between, center, row);
+          margin-top: 1rem;
+
+          .number-items {
+            @include font-body(1, 500, black, 1);
+            @include flex(flex-end, center, row);
+            cursor: pointer;
+          }
+
+          .clear-cart-text {
+            @include font-body(1, 500, black, 1);
+            @include flex(flex-end, center, row);
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+
+        
       }
 
       .cart-right-container {

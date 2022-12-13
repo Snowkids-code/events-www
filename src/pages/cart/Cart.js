@@ -6,7 +6,7 @@ import cartHeader from "../../data/cart-header.json";
 import close from "../../assets/svg/close.svg";
 import plus from "../../assets/svg/plus.svg";
 import minus from "../../assets/svg/minus.svg";
-import { removeEvent } from "../../reducers/cart.reducer";
+import { clearCart, removeEvent } from "../../reducers/cart.reducer";
 
 function Cart() {
   //get cart items
@@ -33,6 +33,15 @@ function Cart() {
                   <p>{data.value}</p>
                 </div>
               ))}
+            </div>
+            <div className="cart-details-summary">
+              <p className="number-items">{items.length} Items</p>
+              <p
+                className="clear-cart-text"
+                onClick={() => dispatch(clearCart())}
+              >
+                Clear Cart
+              </p>
             </div>
             {items.map((data, i) => (
               <div className="order-details-container">
@@ -83,14 +92,14 @@ function Cart() {
                 <p>Tax</p>
                 <p>Ksh {(totalPrice * 0.16).toFixed(2)}</p>
               </div>
-              <div className="summary-wrapper">
+              {/* <div className="summary-wrapper">
                 <p>Shipping</p>
                 <p>Ksh250.00</p>
-              </div>
+              </div> */}
               <div className="summary-wrapper">
                 <p className="total">Total</p>
                 <p className="total">
-                  KSH {(totalPrice + totalPrice * 0.16 + 250).toFixed(2)}
+                  KSH {(totalPrice + totalPrice * 0.16).toFixed(2)}
                 </p>
               </div>
             </div>
