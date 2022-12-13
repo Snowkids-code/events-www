@@ -29,6 +29,10 @@
       gap: 30px;
       color: white;
 
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+
       h1 {
         font-size: 100px;
         line-height: 100px;

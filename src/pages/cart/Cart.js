@@ -122,6 +122,7 @@ function Cart() {
               </div>
             </div>
             <button
+            className="rounded-md bg-gray-400"
               onClick={() => {
                 dispatch(
                   insertOrder({

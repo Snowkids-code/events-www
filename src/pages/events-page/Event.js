@@ -83,7 +83,7 @@ function Event() {
                       <div className="type-container">
                         <DropDown data={event.ticketTypes} />
                       </div>
-                      <button onClick={handleAddCart}>Add to Cart</button>
+                      <button className="rounded-md bg-gray-400" onClick={handleAddCart}>Add to Cart</button>
                       <p className="no-refund">No Refunds</p>
                     </div>
                   </div>

@@ -60,11 +60,11 @@ function Login() {
           </p>
           <span>Don't you have an account?</span>
           <Link to="/register">
-            <button>Register</button>
+            <button className="rounded-md">Register</button>
           </Link>
         </div>
         <div className="right">
-          <h1>Login</h1>
+          <h1 className="font-bold text-xl">Login</h1>
           <div className="login-form">
             <input
               type="text"
@@ -78,11 +78,10 @@ function Login() {
               name="password"
               onChange={handleChange}
             />
-            <button onClick={handleReduxLogin}>Login</button>
+            <button className="rounded-md" onClick={handleReduxLogin}>Login</button>
             <a
               href="/#"
               onClick={() => navigate("/auth/register")}
-              style={{ textDecoration: "none" }}
             >
               CREATE NEW ACCOUNT
             </a>

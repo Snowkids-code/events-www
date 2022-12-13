@@ -6,13 +6,13 @@ function Rooms() {
       <div className="rooms-wrapper">
         <div className="left-container">
           <div className="top-rooms-container">
-            <img alt="image" src="/images/doha-view.jpg" layout="fill" />
+            <img alt="image" src="/images/doha-view.jpg" layout="fill" className="rounded-md"/>
           </div>
           <div className="left-rooms-container">
-            <img alt="image" src="/images/doha-balcony.jpeg" layout="fill" />
+            <img alt="image" src="/images/doha-balcony.jpeg" layout="fill" className="rounded-md"/>
           </div>
           <div className="right-rooms-container">
-            <img alt="image" src="/images/doha-room.jpeg" layout="fill" />
+            <img alt="image" src="/images/doha-room.jpeg" layout="fill" className="rounded-md"/>
           </div>
         </div>
         <div className="right-container">

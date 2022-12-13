@@ -14,7 +14,7 @@ function Position() {
           </p>
         </div>
         <div className="right-container">
-            <img alt="image" src="/images/football-stadium.jpeg" layout="fill"/>
+            <img alt="image" src="/images/football-stadium.jpeg" className="rounded-md" layout="fill"/>
         </div>
       </div>
     </div>

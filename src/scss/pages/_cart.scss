@@ -22,6 +22,13 @@
       margin-top: 2rem;
       gap: 4rem;
 
+      @media screen and (max-width: 900px) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "cart"
+          "summary";
+      }
+
       .cart-left-container {
         grid-area: cart;
 
@@ -32,6 +39,11 @@
           background-color: rgb(178, 178, 240);
           height: 5rem;
           border-radius: 5px;
+
+          @media screen and (max-width: 500px) {
+            padding: 0;
+            gap: 0;
+          }
 
           .title-container {
             @include flex(flex-start, center, row);
@@ -97,7 +109,6 @@
         .cart-total-summary {
           background-color: rgba(171, 202, 218, 0.3);
           padding: 1.5rem;
-          width: calc(100% - 3rem);
           border-radius: 5px;
 
           .title {

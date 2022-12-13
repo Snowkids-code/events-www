@@ -21,6 +21,7 @@
 
     .center-container {
       @include flex(center, center, row);
+      gap: 2rem;
 
       ul {
         list-style: none;
@@ -30,6 +31,10 @@
         a {
           @include font-body(1.0125, 550, #fff, 1);
         }
+      }
+
+      @media screen and (max-width: 800px) {
+        display: none;
       }
     }
   }
