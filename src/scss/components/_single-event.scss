@@ -7,6 +7,13 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   padding: 2rem 0;
 
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 0.5fr 3.5fr;
+    grid-template-areas:
+      "date cover"
+      "desc desc";
+  }
+
   .date-container {
     grid-area: date;
 
@@ -33,7 +40,7 @@
 
   .details-container {
     text-align: center;
-
+    grid-area: desc;
 
     .event-title {
       @include font-heading(1.3875, 550, black, 1);
@@ -54,7 +61,7 @@
       margin-top: 2rem;
 
       p {
-          @include font-heading(1.175, 550, black, 1);
+        @include font-heading(1.175, 550, black, 1);
       }
     }
   }

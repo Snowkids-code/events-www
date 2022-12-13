@@ -67,6 +67,10 @@
                 height: fit-content;
               }
 
+              @media screen and (max-width: 600px) {
+                width: 90%;
+              }
+
               .title {
                 @include font-heading(1.375, 550, black, 1);
               }
