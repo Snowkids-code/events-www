@@ -1,7 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { useContext } from "react";
-import { AuthContext } from "../context/authContext";
 import UserData from "../services/users";
 
 //async thunk to fetch UserData

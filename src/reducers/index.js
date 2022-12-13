@@ -3,6 +3,7 @@ import eventReducer from "./event.reducer";
 import userReducer from "./user.reducer";
 import singleReducer from "./single-event.reducer";
 import cartReducer from "./cart.reducer";
+import orderReducer from "./order.reducer";
 
 //add all your reducers here...
 const appReducer = combineReducers({
@@ -10,6 +11,7 @@ const appReducer = combineReducers({
   userReducer,
   singleReducer,
   cartReducer,
+  orderReducer,
 });
 
 const rootReducer = (state, action) => {

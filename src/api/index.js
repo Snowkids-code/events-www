@@ -14,6 +14,10 @@ let ourApi = {
     getUserData: async (inputs) =>
       await axios.post("http://localhost:500/api/auth/login", inputs),
   },
+  order: {
+    addOrder: async (data) =>
+      await axios.post("http://localhost:500/api/order", data),
+  },
 };
 
 export default ourApi;

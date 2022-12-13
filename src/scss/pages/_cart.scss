@@ -74,7 +74,20 @@
           }
         }
 
-        
+        .confirm-order {
+          margin-top: 3rem;
+          gap: 3rem;
+          @include flex(flex-start, flex-start, column);
+          @include square(100%);
+
+          p {
+            @include font-heading(1.25, 550, black, 1.5);
+
+            &:nth-child(2) {
+              @include font-body(0.9375, 400, black, 1.5);
+            }
+          }
+        }
       }
 
       .cart-right-container {
@@ -107,8 +120,8 @@
         }
 
         button {
-            margin-top: 2rem;
-            @include dimensions(100%, 2.5rem)
+          margin-top: 2rem;
+          @include dimensions(100%, 2.5rem);
         }
       }
     }
