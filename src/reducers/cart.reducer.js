@@ -19,29 +19,24 @@ const cartSlice = createSlice({
         quantity: action.payload.count,
       };
 
-      state.items = [...state.items, newEvent];
-      console.log(state.items);
+      // state.items = [...state.items, newEvent];
       state.totalPrice += action.payload.price[0] * action.payload.count;
 
-      //   //get items from state
-      //   const allEvents = state.items;
+      //get items from state
+      const allEvents = state.items;
 
-      //   console.log(state.items);
+      //check if event array exists
+      if (allEvents.length > 0) {
+        //check for matching IDs
+        let foundEvent = allEvents.find((event) => event._id === newEvent._id);
 
-      //   //check if event array exists
-      //   if (allEvents.length > 0) {
-      //     //check for matching IDs
-      //     let foundEvent = allEvents.find(
-      //       (event) => event.id === Number(newEvent.id)
-      //     );
-
-      //     //add event quantity
-      //     if (foundEvent !== undefined) {
-      //       foundEvent.quantity++;
-      //     }
-      //   } else {
-      //     state.items = [...state.items, newEvent];
-      //   }
+        //add event quantity
+        if (foundEvent !== undefined) {
+          foundEvent.quantity++;
+        }
+      } else {
+        state.items = [...state.items, newEvent];
+      }
     },
     addEventNumber: (state, action) => {
       // state.items.quantity = action.payload
