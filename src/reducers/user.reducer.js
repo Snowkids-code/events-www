@@ -67,6 +67,7 @@ const userSlice = createSlice({
         state.loading = "rejected";
         state.error = action?.payload; //set error if process is rejected
       })
+      //fetch user by ID after reload
       .addCase(fetchUserById.pending, (state, action) => {
         state.loading = "pending";
       })
