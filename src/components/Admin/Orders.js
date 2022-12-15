@@ -3,9 +3,9 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import { getAllOrdersThunk } from "../../reducers/get-orders.reducer";
+import { getFilteredDataThunk } from "../../reducers/filter-orders.reducer";
 
-const data = [];
-
+//used for the react-select component
 const status = [
   { value: "all", label: "all" },
   { value: "pending", label: "pending" },
@@ -13,26 +13,33 @@ const status = [
 ];
 
 function Orders() {
+  //get all the orders
   const orders = useSelector((state) => state.allOrdersReducer.order);
 
+  //get the filtered values in an array
+  const filteredOrder = useSelector(
+    (state) => state.filteredOrderReducer.order
+  );
+
+  //create a variable that hold the state of the filter object
+  //hold an inital value of all
   const [filter, setFilter] = useState({ value: "all" });
-  const [filterOrders, setFilterOrders] = useState(orders);
 
-  const dispatch = useDispatch()
-
-  function getFilteredData(unfilteredData) {
-    return unfilteredData.status === filter.value;
-  }
+  //call the useDispatch hook
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setFilterOrders(orders.filter(getFilteredData));
+    //dispatch the filter process once the value of filter changes
+    dispatch(getFilteredDataThunk({ orders: orders, filterValue: filter }));
   }, [filter]);
 
+  //get all the order once the application runs
   useEffect(() => {
     let isMounted = true;
 
     if (isMounted) {
-      dispatch(getAllOrdersThunk());
+      //dispatch method to get all the orders
+      dispatch(getAllOrdersThunk(orders));
     }
 
     return () => {
@@ -105,6 +112,7 @@ function Orders() {
     },
   ];
 
+  //react-select styling
   const styles = {
     option: (provided, state) => ({
       ...provided,
@@ -130,6 +138,7 @@ function Orders() {
   return (
     <div className="admin-orders-container">
       <div className="orders-top-container">
+        {/* React library for the dropdown menu - ReactSelect */}
         <Select
           isSearchable={false}
           defaultValue={status[0]}
@@ -139,9 +148,13 @@ function Orders() {
         />
       </div>
       <div className="orders-table-container">
+        {/* React library to generate the table - MUI */}
+        {/* When the length of the filteredOrder is zero  display the orders array else display the filteredOrder array */}
         <DataGrid
           rows={
-            filter.value === "all" ? (orders ? orders : data) : filterOrders
+            filteredOrder === undefined || filteredOrder.length === 0
+              ? orders
+              : filteredOrder
           }
           getRowId={(row) => row._id}
           columns={productColumn}

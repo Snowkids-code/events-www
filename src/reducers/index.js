@@ -5,6 +5,7 @@ import singleReducer from "./single-event.reducer";
 import cartReducer from "./cart.reducer";
 import orderReducer from "./order.reducer";
 import allOrdersReducer from "./get-orders.reducer";
+import filteredOrderReducer from './filter-orders.reducer'
 
 //add all your reducers here...
 const appReducer = combineReducers({
@@ -14,6 +15,7 @@ const appReducer = combineReducers({
   cartReducer,
   orderReducer,
   allOrdersReducer,
+  filteredOrderReducer,
 });
 
 const rootReducer = (state, action) => {

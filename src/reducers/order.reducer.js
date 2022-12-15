@@ -15,6 +15,19 @@ export const insertOrder = createAsyncThunk(
     }
   }
 );
+//filter data
+export const getFilteredDataThunk = createAsyncThunk(
+  "orders/filteredOrders",
+  (unfilteredData) => {
+    // return unfilteredData.status === "pending";
+    
+    function getFilter(data) {
+      return data.status === "complete";
+    }
+
+    console.log(unfilteredData.filter(getFilter)) 
+  }
+);
 
 //the initial state
 const initialState = {
@@ -37,6 +50,18 @@ const orderSlice = createSlice({
         state.order = action.payload; //set order to the new payload
       })
       .addCase(insertOrder.rejected, (state, action) => {
+        state.loading = "rejected";
+        state.error = action?.payload; //set error if process is rejected
+      })
+      //redifine the array using the filtered data
+      .addCase(getFilteredDataThunk.pending, (state, action) => {
+        state.loading = "pending";
+      })
+      .addCase(getFilteredDataThunk.fulfilled, (state, action) => {
+        state.loading = "fulfilled";
+        state.order = action.payload; //set order to the new payload
+      })
+      .addCase(getFilteredDataThunk.rejected, (state, action) => {
         state.loading = "rejected";
         state.error = action?.payload; //set error if process is rejected
       });
