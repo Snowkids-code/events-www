@@ -10,6 +10,7 @@ import HomePage from "../pages";
 import EventsAdmin from "../pages/Admin/EventsAdmin";
 import OrdersAdmin from "../pages/Admin/OrdersAdmin";
 import Login from "../pages/authentication/Login";
+import Register from "../pages/authentication/Register";
 import Cart from "../pages/cart/Cart";
 import Event from "../pages/events-page/Event";
 import Events from "../pages/events-page/Events";
@@ -108,6 +109,7 @@ function Routers() {
             )
           }
         />
+        {/* <Route path="/login" element={<Cart />} /> */}
         <Route
           path="/"
           element={

@@ -1,11 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useSelector } from "react-redux";
 import account from "../../../assets/svg/account.svg";
 import message from "../../../assets/svg/message.svg";
 import search from "../../../assets/svg/search.svg";
 import { AuthContext } from "../../../context/authContext";
+import Logout from "../../Modal/Logout";
 
 function NavbarAdmin() {
-  // const { currentUser } = useContext(AuthContext);
+  //get user data from the redux store
+  const currentUser = useSelector((state) => state.userReducer.user);
+
+  //hook to determine modal appearance
+  const [logout, setLogout] = useState(false);
+
+  const handleCloseModal = () => {
+    setLogout(false);
+  };
 
   return (
     <div className="navbar-admin-container">
@@ -27,10 +37,11 @@ function NavbarAdmin() {
           <img alt="" src={message} height={24} width={24} />
           <p>0</p>
         </div>
-        <div className="item-account">
+        <div className="item-account" onClick={() => setLogout(!logout)}>
           <img alt="" src={account} height={24} width={24} />
-          {/* <p>{currentUser.name}</p> */}
+          <p>{currentUser.username}</p>
         </div>
+        {logout && <Logout closeModal={handleCloseModal} />}
       </div>
     </div>
   );

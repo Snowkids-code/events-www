@@ -9,45 +9,29 @@ function Login() {
     username: "",
     password: "",
   });
-  // const [err, setErr] = useState(null);
-
-  // const { login } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
-  const status = useSelector(state => state.userReducer.loading)
+  const status = useSelector((state) => state.userReducer.loading);
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await login(inputs)
-  //       .then(() => {
-  //         navigate("/");
-  //       })
-  //       .catch((err) => console.log(err));
-  //   } catch (error) {
-  //     setErr(error.response.data);
-  //   }
-  // };
-
   const handleReduxLogin = (e) => {
     e.preventDefault();
     dispatch(addUserData(inputs));
-    dispatch(fetchUser(inputs))
+    dispatch(fetchUser(inputs));
   };
 
   useEffect(() => {
     //check for successful login
     if (status === "fulfilled") {
-      navigate("/")
+      navigate("/");
     }
-  }, [status])
+  }, [status]);
 
   return (
     <div className="login-container">
@@ -79,11 +63,10 @@ function Login() {
               name="password"
               onChange={handleChange}
             />
-            <button className="rounded-md" onClick={handleReduxLogin}>Login</button>
-            <a
-              href="/#"
-              onClick={() => navigate("/auth/register")}
-            >
+            <button className="rounded-md" onClick={handleReduxLogin}>
+              Login
+            </button>
+            <a href="/#" onClick={() => navigate("/auth/register")}>
               CREATE NEW ACCOUNT
             </a>
           </div>
