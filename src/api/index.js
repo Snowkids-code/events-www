@@ -13,6 +13,8 @@ let ourApi = {
   user: {
     getUserData: async (inputs) =>
       await axios.post("http://localhost:500/api/auth/login", inputs),
+    getUserDataById: async (Id) =>
+      await axios.get(`http://localhost:500/api/user/find/${Id}`),
   },
   order: {
     addOrder: async (data) =>

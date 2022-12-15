@@ -1,142 +1,15 @@
-import { useContext, useEffect } from "react";
-import {
-  createBrowserRouter,
-  Navigate,
-  Outlet,
-  RouterProvider,
-} from "react-router-dom";
-import Footer from "./components/Layout/Footer";
-import Navbar from "./components/Layout/Navbar";
-import { AuthContext } from "./context/authContext";
-import logo from "./logo.svg";
-import AdminDashboard from "./pages/Admin";
-import Login from "./pages/authentication/Login";
-import Register from "./pages/authentication/Register";
-import Cart from "./pages/cart/Cart";
-import Event from "./pages/events-page/Event";
-import Events from "./pages/events-page/Events";
-import Homepage from "./pages/Client";
+import { useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 import "./styles/App.css";
-import HomePage from "./pages";
 import { getAllEventsThunk } from "./reducers/event.reducer";
-import { useDispatch, useSelector } from "react-redux";
-import NotFound from "./pages/not-found";
-import EventsAdmin from "./pages/Admin/EventsAdmin";
-import OrdersAdmin from "./pages/Admin/OrdersAdmin";
-import NavbarAdmin from "./components/Layout/Admin/navbar-admin";
-import SidebarAdmin from "./components/Layout/Admin/sidebar-admin";
+import { useDispatch } from "react-redux";
+import Routers from "./routes/Routes";
 
 function App() {
-  const currentUser = useSelector((state) => state.userReducer.user);
-  console.log(currentUser.length);
+  //call the useDispatch hook
   const dispatch = useDispatch();
 
-  const Layout = () => {
-    return (
-      <div>
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </div>
-    );
-  };
-
-  const AdminLayout = () => {
-    return (
-      <div>
-        <NavbarAdmin />
-        <div className="flex max-[1000px]:block">
-          <SidebarAdmin />
-          <div style={{ flex: "10" }}>
-            <Outlet />
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const ProtectedRoute = ({ children }) => {
-    if (currentUser.length === 0) {
-      return <Navigate to="/login" />;
-    }
-
-    return children;
-  };
-
-  const router = createBrowserRouter(
-    [
-      {
-        path: "/events",
-        element: (
-          <ProtectedRoute>
-            <Layout />
-          </ProtectedRoute>
-        ),
-        children: [
-          {
-            path: "/events",
-            element: <Events />,
-          },
-          {
-            path: "/events/:id",
-            element: <Event />,
-          },
-        ],
-        errorElement: <NotFound />,
-      },
-      {
-        path: "/cart",
-        element: (
-          <ProtectedRoute>
-            <Layout />
-          </ProtectedRoute>
-        ),
-        children: [
-          {
-            path: "/cart",
-            element: <Cart />,
-          },
-        ],
-      },
-      {
-        path: "/",
-        element: (
-          <ProtectedRoute>
-            <HomePage />
-          </ProtectedRoute>
-        ),
-        errorElement: <NotFound />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/admin",
-        element: (
-          <ProtectedRoute>
-            <AdminLayout />
-          </ProtectedRoute>
-        ),
-        children: [
-          {
-            path: "/admin/events",
-            element: <EventsAdmin />,
-          },
-          {
-            path: "/admin/orders",
-            element: <OrdersAdmin />,
-          },
-        ],
-      },
-    ],
-    { errorElement: <NotFound /> }
-  );
-
+  //fetch all the events on app load
   useEffect(() => {
     let isMounted = true;
 
@@ -151,7 +24,9 @@ function App() {
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Routers />
+      </BrowserRouter>
     </div>
   );
 }

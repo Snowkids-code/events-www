@@ -9,9 +9,9 @@ function Login() {
     username: "",
     password: "",
   });
-  const [err, setErr] = useState(null);
+  // const [err, setErr] = useState(null);
 
-  const { login } = useContext(AuthContext);
+  // const { login } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -23,18 +23,18 @@ function Login() {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      await login(inputs)
-        .then(() => {
-          navigate("/");
-        })
-        .catch((err) => console.log(err));
-    } catch (error) {
-      setErr(error.response.data);
-    }
-  };
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await login(inputs)
+  //       .then(() => {
+  //         navigate("/");
+  //       })
+  //       .catch((err) => console.log(err));
+  //   } catch (error) {
+  //     setErr(error.response.data);
+  //   }
+  // };
 
   const handleReduxLogin = (e) => {
     e.preventDefault();
@@ -43,6 +43,7 @@ function Login() {
   };
 
   useEffect(() => {
+    //check for successful login
     if (status === "fulfilled") {
       navigate("/")
     }

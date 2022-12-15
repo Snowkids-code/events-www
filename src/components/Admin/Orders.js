@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
+import { getAllOrdersThunk } from "../../reducers/get-orders.reducer";
 
 const data = [];
 
@@ -17,6 +18,8 @@ function Orders() {
   const [filter, setFilter] = useState({ value: "all" });
   const [filterOrders, setFilterOrders] = useState(orders);
 
+  const dispatch = useDispatch()
+
   function getFilteredData(unfilteredData) {
     return unfilteredData.status === filter.value;
   }
@@ -26,8 +29,16 @@ function Orders() {
   }, [filter]);
 
   useEffect(() => {
-    console.log(filterOrders);
-  }, [filterOrders]);
+    let isMounted = true;
+
+    if (isMounted) {
+      dispatch(getAllOrdersThunk());
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const productColumn = [
     { field: "_id", headerName: "ID", width: 220 },

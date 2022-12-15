@@ -16,9 +16,23 @@ export const fetchUser = createAsyncThunk(
   }
 );
 
+//async thunk to fetch userData using the ID
+export const fetchUserById = createAsyncThunk(
+  "user/fetchUserById",
+  async (Id) => {
+    try {
+      const response = await UserData.getUserDataById(Id);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.log("Err", error);
+    }
+  }
+);
+
 //the initial state
 const initialState = {
-  user: [],
+  user: {},
   loading: "idle", //idle, pending, fulfilled, rejected
   error: null,
 };
@@ -33,11 +47,11 @@ const userSlice = createSlice({
         ...action.payload,
         quantity: 1,
       };
-      state.user = [...state.user, newUser]; //fill user array
+      // state.user = [...state.user, newUser]; //fill user array
     },
     UserLogout: (state, action) => {
       state.user = [];
-      console.log("Logout")
+      console.log("Logout");
     },
   },
   extraReducers(builder) {
@@ -50,6 +64,17 @@ const userSlice = createSlice({
         state.user = action.payload; //set user to the new payload
       })
       .addCase(fetchUser.rejected, (state, action) => {
+        state.loading = "rejected";
+        state.error = action?.payload; //set error if process is rejected
+      })
+      .addCase(fetchUserById.pending, (state, action) => {
+        state.loading = "pending";
+      })
+      .addCase(fetchUserById.fulfilled, (state, action) => {
+        state.loading = "fulfilled";
+        state.user = action.payload; //set user to the new payload
+      })
+      .addCase(fetchUserById.rejected, (state, action) => {
         state.loading = "rejected";
         state.error = action?.payload; //set error if process is rejected
       });

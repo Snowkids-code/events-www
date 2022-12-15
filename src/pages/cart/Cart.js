@@ -6,7 +6,12 @@ import cartHeader from "../../data/cart-header.json";
 import close from "../../assets/svg/close.svg";
 import plus from "../../assets/svg/plus.svg";
 import minus from "../../assets/svg/minus.svg";
-import { clearCart, removeEvent } from "../../reducers/cart.reducer";
+import {
+  addEventNumber,
+  clearCart,
+  removeEvent,
+  subtractEventNumber,
+} from "../../reducers/cart.reducer";
 import { insertOrder } from "../../reducers/order.reducer";
 
 function Cart() {
@@ -59,17 +64,29 @@ function Cart() {
                       </div>
                       <div className="cart-product-desc">
                         <p>{data.title}</p>
-                        <p>size: L</p>
-                        <p>Style Code: dfgdfg7</p>
+                        <p>ticketType: {data.ticketTypes[0]}</p>
+                        <p>Category: {data.category[0]}</p>
                       </div>
                       <div className="cart-product-price">
                         <p>${data.price[0] * data.quantity}</p>
                       </div>
                       <div className="cart-product-count">
                         <div className="cart-product-wrapper">
-                          <img alt="remove" src={minus} />
+                          <img
+                            alt="remove"
+                            src={minus}
+                            onClick={() =>
+                              dispatch(
+                                subtractEventNumber(data?._id)
+                              )
+                            }
+                          />
                           <div className="count-wrapper">{data.quantity}</div>
-                          <img alt="add" src={plus} />
+                          <img
+                            alt="add"
+                            src={plus}
+                            onClick={() => dispatch(addEventNumber({ key: i }))}
+                          />
                         </div>
                       </div>
                       <div className="cart-product-close">
@@ -122,7 +139,7 @@ function Cart() {
               </div>
             </div>
             <button
-            className="rounded-md bg-gray-400"
+              className="rounded-md bg-gray-400"
               onClick={() => {
                 dispatch(
                   insertOrder({

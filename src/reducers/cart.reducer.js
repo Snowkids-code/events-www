@@ -33,17 +33,39 @@ const cartSlice = createSlice({
         //add event quantity
         if (foundEvent !== undefined) {
           foundEvent.quantity++;
+        } else {
+          state.items = [...state.items, newEvent];
         }
       } else {
         state.items = [...state.items, newEvent];
       }
     },
     addEventNumber: (state, action) => {
-      // state.items.quantity = action.payload
-      const newA = [...state.items];
-      console.log(state);
-      //   state.items = [...state.items, newEvent];
-      console.log(action.payload.quantity);
+      const newA = [...state.items]; //get the cart items
+      //add the quantity by one, if the quantity value is les than 0, set it to 1
+      // - prevents us from having negative number of items
+      newA[action.payload.key].quantity =
+        newA[action.payload.key].quantity < 0
+          ? 1
+          : newA[action.payload.key].quantity + 1;
+    },
+    subtractEventNumber: (state, action) => {
+      const newArrayItems = [...state.items]; //copy of the state items
+      const passedId = action.payload?._id;
+
+      if (passedId !== undefined) {
+        const foundItem = newArrayItems.find((item) => item?._id === passedId);
+
+        if (foundItem && foundItem?.quantity !== 0) {
+          const newItems = newArrayItems?.filter(
+            (item) => item?._id !== foundItem?._id
+          );
+          state.items = newItems;
+        }
+      }
+      else{
+        alert("Please pass item Id")
+      }
     },
     removeEvent: (state, action) => {
       //remove event from the array
@@ -57,6 +79,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addEvent, addEventNumber, removeEvent, clearCart } =
-  cartSlice.actions;
+export const {
+  addEvent,
+  addEventNumber,
+  removeEvent,
+  clearCart,
+  subtractEventNumber,
+} = cartSlice.actions;
 export default cartSlice.reducer;

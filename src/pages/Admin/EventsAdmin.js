@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import NavbarAdmin from "../../components/Layout/Admin/navbar-admin";
 import SidebarAdmin from "../../components/Layout/Admin/sidebar-admin";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import getAllEventsThunk from "../../reducers/event.reducer";
 
 const data = [
   {

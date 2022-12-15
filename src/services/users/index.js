@@ -5,6 +5,12 @@ const getUserData = async (inputs) => {
   return response;
 };
 
+const getUserDataById = async (Id) => {
+  const response = await ourApi.user.getUserDataById(Id);
+  return response;
+};
+
 export default {
   getUserData,
+  getUserDataById,
 };
