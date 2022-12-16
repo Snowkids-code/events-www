@@ -51,7 +51,7 @@ function Routers() {
         <NavbarAdmin />
         <div className="flex max-[1000px]:block">
           <SidebarAdmin />
-          <div style={{ flex: "10" }}>
+          <div style={{ flex: "10" }} className='admin-main-container'>
             <Outlet />
           </div>
         </div>

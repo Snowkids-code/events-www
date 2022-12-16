@@ -7,7 +7,6 @@ export const fetchUser = createAsyncThunk(
   async (inputs) => {
     try {
       const res = await UserData.getUserData(inputs);
-      console.log(res.data);
       return res.data; //user data
     } catch (error) {
       console.log("Err", error);
@@ -22,7 +21,6 @@ export const fetchUserById = createAsyncThunk(
   async (Id) => {
     try {
       const response = await UserData.getUserDataById(Id);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log("Err", error);

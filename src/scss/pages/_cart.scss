@@ -35,13 +35,13 @@
         .heading-container {
           @include flex(space-between, center, row);
           gap: 2rem;
-          padding: 0 2rem;
+          padding: 0 5rem;
           background-color: rgb(178, 178, 240);
           height: 5rem;
           border-radius: 5px;
 
           @media screen and (max-width: 500px) {
-            padding: 0;
+            padding: 0 1rem;
             gap: 0;
           }
 

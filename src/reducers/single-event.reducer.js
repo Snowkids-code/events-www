@@ -16,7 +16,6 @@ export const getSingleEventThunk = createAsyncThunk(
   async (itemId) => {
     try {
       const res = await EventService.getSingleEvent(itemId);
-      console.log(res.data);
       return res.data; //single event response
     } catch (error) {
       console.log("Err", error);

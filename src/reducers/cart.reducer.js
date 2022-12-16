@@ -60,7 +60,7 @@ const cartSlice = createSlice({
           //if the type passed is subtract
           case "subtract":
             //if only one item is available in the cart
-            if (foundItem && foundItem?.quantity - 1 == 0) {
+            if (foundItem && foundItem?.quantity - 1 === 0) {
               //remove item from the cart array
               const newItems = newArrayItems?.filter(
                 (item) => item?._id !== foundItem?._id

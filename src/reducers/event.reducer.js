@@ -15,7 +15,6 @@ export const getAllEventsThunk = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await EventService.getAllEvents();
-      console.log(response);
       return response.data;
     } catch (err) {
       console.log("an error", err);

@@ -24,7 +24,7 @@ function Events() {
 
   // useEffect(() => {
   //   if (status === "fulfilled") {
-  //     navigate(`/events/${eventId}`);
+  //     navigate(`/events/${id}`);
   //   }
   // }, [status]);
 

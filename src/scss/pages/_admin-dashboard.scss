@@ -34,3 +34,9 @@
     }
   }
 }
+
+.admin-main-container{
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+  }
+}

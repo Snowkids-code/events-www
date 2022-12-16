@@ -7,7 +7,6 @@ export const insertOrder = createAsyncThunk(
   async (data) => {
     try {
       const res = await OrderData.addOrder(data);
-      console.log(res.data);
       return res.data; //user data
     } catch (error) {
       console.log("Err", error);
@@ -24,8 +23,6 @@ export const getFilteredDataThunk = createAsyncThunk(
     function getFilter(data) {
       return data.status === "complete";
     }
-
-    console.log(unfilteredData.filter(getFilter)) 
   }
 );
 

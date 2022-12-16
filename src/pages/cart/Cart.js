@@ -148,7 +148,7 @@ function Cart() {
                 setActiveLink("Confirmation");
               }}
             >
-              Next Step
+              Place Order
             </button>
           </div>
         </div>
