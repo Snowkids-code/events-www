@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ticketImage from "../../assets/image/event-ticket.jpeg";
-import OrderDetails from "../../components/Cart/OrderDetails";
 import cartHeader from "../../data/cart-header.json";
 import close from "../../assets/svg/close.svg";
 import plus from "../../assets/svg/plus.svg";
 import minus from "../../assets/svg/minus.svg";
 import {
-  addEventNumber,
+  changeEventNumber,
   clearCart,
-  removeEvent,
-  subtractEventNumber,
 } from "../../reducers/cart.reducer";
 import { insertOrder } from "../../reducers/order.reducer";
 
@@ -18,9 +15,11 @@ function Cart() {
   //get cart items
   const items = useSelector((state) => state.cartReducer.items);
   const totalPrice = useSelector((state) => state.cartReducer.totalPrice);
+  //get the user data
   const currentUser = useSelector((state) => state.userReducer);
   const [activeLink, setActiveLink] = useState("Order Details");
 
+  //call the dispatch hook
   const dispatch = useDispatch();
 
   return (
@@ -57,7 +56,7 @@ function Cart() {
                   </p>
                 </div>
                 {items.map((data, i) => (
-                  <div className="order-details-container">
+                  <div className="order-details-container" key={data._id}>
                     <div className="cart-products-cont">
                       <div className="cart-product-img">
                         <img alt="" src={data.img} />
@@ -77,7 +76,7 @@ function Cart() {
                             src={minus}
                             onClick={() =>
                               dispatch(
-                                subtractEventNumber(data?._id)
+                                changeEventNumber({type: "subtract", id:data?._id})
                               )
                             }
                           />
@@ -85,7 +84,7 @@ function Cart() {
                           <img
                             alt="add"
                             src={plus}
-                            onClick={() => dispatch(addEventNumber({ key: i }))}
+                            onClick={() => dispatch(changeEventNumber({type: "add", id:data?._id}))}
                           />
                         </div>
                       </div>
@@ -93,7 +92,7 @@ function Cart() {
                         <img
                           alt="add"
                           src={close}
-                          onClick={() => dispatch(removeEvent({ key: i }))}
+                          onClick={() => dispatch(changeEventNumber({type: "remove", id:data?._id}))}
                         />
                       </div>
                     </div>
@@ -127,10 +126,6 @@ function Cart() {
                 <p>Tax</p>
                 <p>$ {(totalPrice * 0.16).toFixed(2)}</p>
               </div>
-              {/* <div className="summary-wrapper">
-                <p>Shipping</p>
-                <p>Ksh250.00</p>
-              </div> */}
               <div className="summary-wrapper">
                 <p className="total">Total</p>
                 <p className="total">

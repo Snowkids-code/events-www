@@ -40,36 +40,54 @@ const cartSlice = createSlice({
         state.items = [...state.items, newEvent];
       }
     },
-    addEventNumber: (state, action) => {
-      const newA = [...state.items]; //get the cart items
-      //add the quantity by one, if the quantity value is les than 0, set it to 1
-      // - prevents us from having negative number of items
-      newA[action.payload.key].quantity =
-        newA[action.payload.key].quantity < 0
-          ? 1
-          : newA[action.payload.key].quantity + 1;
-    },
-    subtractEventNumber: (state, action) => {
+    changeEventNumber: (state, action) => {
       const newArrayItems = [...state.items]; //copy of the state items
-      const passedId = action.payload?._id;
+      const passedId = action.payload.id; //get the passedId
 
+      //validate that passedId actually has a value
       if (passedId !== undefined) {
+        //get the actual item that has the same Id as the one passed
         const foundItem = newArrayItems.find((item) => item?._id === passedId);
 
-        if (foundItem && foundItem?.quantity !== 0) {
-          const newItems = newArrayItems?.filter(
-            (item) => item?._id !== foundItem?._id
-          );
-          state.items = newItems;
+        //performe operation depending on the type passed
+        switch (action.payload.type) {
+          //if thetype assed is add
+          case "add":
+            //increase item quantity and the total price too
+            foundItem.quantity += 1;
+            state.totalPrice += foundItem.price[0];
+            break;
+          //if the type passed is subtract
+          case "subtract":
+            //if only one item is available in the cart
+            if (foundItem && foundItem?.quantity - 1 == 0) {
+              //remove item from the cart array
+              const newItems = newArrayItems?.filter(
+                (item) => item?._id !== foundItem?._id
+              );
+              //set new array for the cart items
+              state.items = newItems;
+              state.totalPrice -= foundItem.quantity * foundItem.price[0];
+            } else {
+              //decrease item quantity and the total price too
+              foundItem.quantity -= 1;
+              state.totalPrice -= foundItem.price[0];
+            }
+            break;
+          case "remove":
+            //remove item from the cart array
+            const newItems = newArrayItems?.filter(
+              (item) => item?._id !== foundItem?._id
+            );
+            //set new array for the cart items
+            state.items = newItems;
+            state.totalPrice -= foundItem.quantity * foundItem.price[0];
+            break;
+          //if no type is passed at all
+          default:
+            alert("choose type");
         }
       }
-      else{
-        alert("Please pass item Id")
-      }
-    },
-    removeEvent: (state, action) => {
-      //remove event from the array
-      state.items.splice(action.payload.key, 1);
     },
     clearCart: (state, action) => {
       //revert everything to the initial state
@@ -81,9 +99,7 @@ const cartSlice = createSlice({
 
 export const {
   addEvent,
-  addEventNumber,
-  removeEvent,
   clearCart,
-  subtractEventNumber,
+  changeEventNumber,
 } = cartSlice.actions;
 export default cartSlice.reducer;

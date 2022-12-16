@@ -6,25 +6,25 @@ import { useDispatch } from "react-redux";
 import { addEventNumber, removeEvent } from "../../reducers/cart.reducer";
 
 function OrderDetails(data, key) {
-  const dispatch = useDispatch();
-  const [counter, setCounter] = useState(data.data.quantity);
-  console.log(data)
+  // const dispatch = useDispatch();
+  // const [counter, setCounter] = useState(data.data.quantity);
+  // console.log(data)
 
-  const handlAddEventNumber = () => {
-    dispatch(
-      addEventNumber({
-        quantity: counter,
-        id: data.data._id,
-        key: data.data._id,
-        price: data.data.price[0],
-        state: data.data,
-      })
-    );
-  };
+  // const handlAddEventNumber = () => {
+  //   dispatch(
+  //     addEventNumber({
+  //       quantity: counter,
+  //       id: data.data._id,
+  //       key: data.data._id,
+  //       price: data.data.price[0],
+  //       state: data.data,
+  //     })
+  //   );
+  // };
 
-  const handleRemoveEvent = () => {
-    dispatch(removeEvent({ key: key }));
-  };
+  // const handleRemoveEvent = () => {
+  //   dispatch(removeEvent({ key: key }));
+  // };
 
   // useEffect(() => {
   //   dispatch(
@@ -38,7 +38,7 @@ function OrderDetails(data, key) {
   // }, [counter]);
   return (
     <div className="order-details-container">
-      <div className="cart-products-cont">
+      {/* <div className="cart-products-cont">
         <div className="cart-product-img">
           <img alt="" src={data.data.img} />
         </div>
@@ -60,7 +60,7 @@ function OrderDetails(data, key) {
         <div className="cart-product-close">
           <img alt="add" src={close} onClick={handleRemoveEvent} />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
