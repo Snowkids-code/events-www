@@ -12,14 +12,11 @@ const getSingleEvent = async (itemId) => {
   return response;
 };
 
-//assinging objects to a variable
-const eventsFunctions = {
+//assinging objects to a variable - EventService
+const EventService = {
   getAllEvents,
   getSingleEvent,
 }
 
-//export the above functions
-export default {
-  getAllEvents,
-  getSingleEvent,
-};
+//export EventSrevice as the default
+export default EventService;

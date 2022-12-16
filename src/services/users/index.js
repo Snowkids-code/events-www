@@ -13,7 +13,9 @@ const getUserDataById = async (Id) => {
 };
 
 //export both functions included
-export default {
+const UserData = {
   getUserData,
   getUserDataById,
 };
+
+export default UserData;
