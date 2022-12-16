@@ -41,6 +41,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     addUserData: (state, action) => {
+      // eslint-disable-next-line 
       let newUser = {
         ...action.payload,
         quantity: 1,
@@ -48,7 +49,7 @@ const userSlice = createSlice({
       // state.user = [...state.user, newUser]; //fill user array
     },
     UserLogout: (state, action) => {
-      state.user = [];
+      state.user = {};
       console.log("Logout");
     },
   },

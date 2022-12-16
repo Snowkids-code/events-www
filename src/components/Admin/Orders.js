@@ -47,6 +47,8 @@ function Orders() {
     };
   }, [dispatch, orders]);
 
+
+  //for the data table
   const productColumn = [
     { field: "_id", headerName: "ID", width: 220 },
     {

@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Navigate, Routes, Outlet } from "react-router-dom";
-import NavbarAdmin from "../components/Layout/Admin/navbar-admin";
-import SidebarAdmin from "../components/Layout/Admin/sidebar-admin";
-import Footer from "../components/Layout/Footer";
-import Navbar from "../components/Layout/Navbar";
+import { Route, Navigate, Routes } from "react-router-dom";
+import AdminLayout from "../components/Layout/Admin/AdminLayout";
+import ProtectedRoute from "../components/Layout/ProtectedRoute";
+import UserLayout from "../components/Layout/UserLayout";
 import HomePage from "../pages";
 import EventsAdmin from "../pages/Admin/EventsAdmin";
 import OrdersAdmin from "../pages/Admin/OrdersAdmin";
@@ -43,46 +42,6 @@ function Routers() {
     }
   });
 
-  //pre-defined admin layout i.e navbar and sidebar
-  const AdminLayout = () => {
-    return (
-      <div>
-        <NavbarAdmin />
-        <div className="flex max-[1000px]:block">
-          <SidebarAdmin />
-          <div style={{ flex: "10" }} className='admin-main-container'>
-            <Outlet />
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  //determine if the user is logged in before accessing a route
-  const ProtectedRoute = ({ children }) => {
-    //if user object is empty and there is no user cookie, navigate to '/login' route
-    if (
-      Object.keys(currentUser).length === 0 &&
-      cookies["user"] === undefined
-    ) {
-      return <Navigate to="login" />;
-    }
-
-    //if one or both of the above conditions are not met, return the requested route
-    return children;
-  };
-
-  //predefined client page layout i.e navbar nad footer
-  const Layout = () => {
-    return (
-      <div>
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </div>
-    );
-  };
-
   return (
     <>
       <Routes>
@@ -115,7 +74,7 @@ function Routers() {
           path="/"
           element={
             <ProtectedRoute>
-              <Layout />
+              <UserLayout />
             </ProtectedRoute>
           }
         >
