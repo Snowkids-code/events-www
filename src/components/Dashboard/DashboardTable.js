@@ -73,7 +73,7 @@ function DashboardTable() {
               <TableCell className="tableCell">Date</TableCell>
               <TableCell className="tableCell">Amount</TableCell>
               <TableCell className="tableCell">Payment Method</TableCell>
-              <TableCell ç>Status</TableCell>
+              <TableCell className="tableCell">Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
