@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import account from "../../../assets/svg/account.svg";
 import message from "../../../assets/svg/message.svg";
 import search from "../../../assets/svg/search.svg";
-import { AuthContext } from "../../../context/authContext";
 import Logout from "../../Modal/Logout";
 
 function NavbarAdmin() {
@@ -13,6 +12,7 @@ function NavbarAdmin() {
   //hook to determine modal appearance
   const [logout, setLogout] = useState(false);
 
+  //close the logout modal
   const handleCloseModal = () => {
     setLogout(false);
   };

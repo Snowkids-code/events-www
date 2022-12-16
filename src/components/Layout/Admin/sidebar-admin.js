@@ -12,7 +12,7 @@ function SidebarAdmin() {
             <Link to={link.link} style={{ textDecoration: "none" }} key={link._id}>
               <li>
                 <img alt="" src={link.img} height={24} width={24} />
-                <a href="/#">{link.title}</a>
+                <p>{link.title}</p>
               </li>
             </Link>
           ))}

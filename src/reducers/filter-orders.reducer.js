@@ -9,6 +9,7 @@ export const getFilteredDataThunk = createAsyncThunk(
       return data.status === filterValue.filterValue.value;
     }
 
+    //call the filter method on the orders array
     return filterValue.orders.filter(getFilter);
   },
 );

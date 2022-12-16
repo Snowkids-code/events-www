@@ -1,6 +1,5 @@
-import React, { Suspense, useContext } from "react";
+import React, { Suspense } from "react";
 import { useSelector } from "react-redux";
-import { AuthContext } from "../context/authContext";
 //use React.lazy to lazy load the admin and the client component
 const Admin = React.lazy(() => import("../pages/Admin"));
 const Client = React.lazy(() => import("./Client/index.js"));
@@ -16,7 +15,7 @@ function HomePage() {
         <Admin />
       </Suspense>
     );
-  } 
+  }
   //if the user is not an admin, redirect them to the client page
   else if (!currentUser.user.isAdmin) {
     return (
@@ -24,7 +23,7 @@ function HomePage() {
         <Client />
       </Suspense>
     );
-  } 
+  }
   //if there is no user type, display a message on the screen
   else {
     return <div>Usertype required for redirect</div>;

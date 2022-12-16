@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
@@ -31,7 +31,7 @@ function Orders() {
   useEffect(() => {
     //dispatch the filter process once the value of filter changes
     dispatch(getFilteredDataThunk({ orders: orders, filterValue: filter }));
-  }, [filter]);
+  }, [filter, dispatch, orders]);
 
   //get all the order once the application runs
   useEffect(() => {
@@ -45,7 +45,7 @@ function Orders() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [dispatch, orders]);
 
   const productColumn = [
     { field: "_id", headerName: "ID", width: 220 },

@@ -1,17 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-import NavbarAdmin from "../../components/Layout/Admin/navbar-admin";
-import SidebarAdmin from "../../components/Layout/Admin/sidebar-admin";
-import { useDispatch, useSelector } from "react-redux";
-import getAllEventsThunk from "../../reducers/event.reducer";
-
-const data = [
-  {
-    id: 1,
-    title: "No Product",
-  },
-];
+import { useSelector } from "react-redux";
 
 function EventsAdmin() {
   const [addProduct, setAddProduct] = useState(false);
@@ -89,7 +79,7 @@ function EventsAdmin() {
         </div>
         <div className="products-table-container">
           <DataGrid
-            rows={events ? events : data}
+            rows={events}
             getRowId={(row) => row.title}
             columns={productColumn}
             pageSize={25}

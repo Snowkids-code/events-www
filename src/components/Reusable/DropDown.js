@@ -15,8 +15,6 @@ function DropDown({ data }) {
     }),
     control: (styles) => ({
       ...styles,
-      // border: "none",
-      // boxShadow: "none",
     }),
     singleValue: (styles) => ({
       ...styles,

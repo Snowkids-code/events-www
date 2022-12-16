@@ -15,9 +15,10 @@ function Navbar() {
             <ul key={item._id}>
               <Link to={item.path} style={{textDecoration : "none"}}>
                 <li>
-                  <a href="/#" style={{ textDecoration: "none" }}>
+                  {/* <a href="/#" style={{ textDecoration: "none" }}>
                     {item.value}
-                  </a>
+                  </a> */}
+                  {item.value}
                 </li>
               </Link>
             </ul>

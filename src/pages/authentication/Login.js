@@ -1,37 +1,43 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/authContext";
 import { addUserData, fetchUser } from "../../reducers/user.reducer";
 
 function Login() {
+  //initial values of the user input
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
   });
 
+  //call the navigate hook
   const navigate = useNavigate();
 
+  //call the dispatch hook
   const dispatch = useDispatch();
 
+  //get the user login status - to dertermine when to redirect
   const status = useSelector((state) => state.userReducer.loading);
 
+  //handle the values input by the user to create an object
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  //handle the login process using dispatch hook
   const handleReduxLogin = (e) => {
     e.preventDefault();
     dispatch(addUserData(inputs));
     dispatch(fetchUser(inputs));
   };
 
+  //call the function if the value of status changes
   useEffect(() => {
     //check for successful login
     if (status === "fulfilled") {
       navigate("/");
     }
-  }, [status]);
+  }, [status, navigate]);
 
   return (
     <div className="login-container">

@@ -13,7 +13,6 @@
     }
 
     .event-booking-details-container {
-      // position: absolute;
       @extend .primary-container;
 
       .event-booking-details-wrapper {
@@ -25,7 +24,6 @@
         }
 
         .event-booking-content {
-          //   margin-top: 10vh;
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           height: 100%;

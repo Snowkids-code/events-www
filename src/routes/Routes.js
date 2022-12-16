@@ -10,7 +10,6 @@ import HomePage from "../pages";
 import EventsAdmin from "../pages/Admin/EventsAdmin";
 import OrdersAdmin from "../pages/Admin/OrdersAdmin";
 import Login from "../pages/authentication/Login";
-import Register from "../pages/authentication/Register";
 import Cart from "../pages/cart/Cart";
 import Event from "../pages/events-page/Event";
 import Events from "../pages/events-page/Events";
@@ -87,6 +86,7 @@ function Routers() {
   return (
     <>
       <Routes>
+      {/* navigate to the login page if user tries to access the homepage while not logged in */}
         <Route
           path="/"
           exact
@@ -98,6 +98,7 @@ function Routers() {
             )
           }
         />
+        {/* navigate to the homepage if user tries to access the login page while logged in */}
         <Route
           exact
           path="/login"
@@ -109,7 +110,7 @@ function Routers() {
             )
           }
         />
-        {/* <Route path="/login" element={<Cart />} /> */}
+        {/* user side routes covered by the layout i.e the footer and navbar and including the protected routing */}
         <Route
           path="/"
           element={
@@ -122,6 +123,7 @@ function Routers() {
           <Route path="/events/:id" element={<Event />} />
           <Route path="/cart" element={<Cart />} />
         </Route>
+        {/* admin side routes covered by the layout i.e the sidebar and the navbar and includes the protected routing too */}
         <Route
           path="/"
           element={
@@ -133,8 +135,8 @@ function Routers() {
           <Route path="admin/events" element={<EventsAdmin />} />
           <Route path="admin/orders" element={<OrdersAdmin />} />
         </Route>
-        <Route path="*" element={<NotFound />} />{" "}
         {/*incase the accessed route is not available*/}
+        <Route path="*" element={<NotFound />} />{" "}
       </Routes>
     </>
   );

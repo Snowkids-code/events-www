@@ -4,8 +4,10 @@ import ChevronLeft from "../../assets/svg/chevron-left.svg";
 import data from "../../data/home-carousel.json";
 
 function HomepageCarousel() {
+  //initial position of the slider
   const [index, setIndex] = useState(0);
 
+  //change the sliders depending on the value selected
   const handleArrow = (direction) => {
     if (direction === "l") {
       setIndex(index !== 0 ? index - 1 : 2);
@@ -27,7 +29,6 @@ function HomepageCarousel() {
           alt="ChevronLeft"
           width="24"
           height="24"
-          // objectFit="contain"
         />
       </div>
       <div
@@ -44,7 +45,7 @@ function HomepageCarousel() {
               <div className="inner-container">
                 <div className="left-container">
                   <img
-                    alt="first-picture"
+                    alt="first"
                     src={data.firstPicture}
                     layout="fill"
                   />
@@ -79,7 +80,7 @@ function HomepageCarousel() {
                 </div>
                 <div className="right-container">
                   <img
-                    alt="first-picture"
+                    alt="first"
                     src={data.secondPicture}
                     layout="fill"
                   />
@@ -99,7 +100,6 @@ function HomepageCarousel() {
           alt="ChevronRight"
           width="24"
           height="24"
-          // objectFit="contain"
         />
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import EventService from "../services/events";
 
+//create the inital state of the events
 const initialState = {
   items: [],
   loading: "idle", //idle, pending, fulfilled, rejected
@@ -28,6 +29,7 @@ const eventSlice = createSlice({
   initialState,
   reducers: {
     addEvent: (state, action) => {
+      //add a quantity attribute to the events array and set it to 1
       let newEvent = {
         ...action.payload,
         quantity: 1,

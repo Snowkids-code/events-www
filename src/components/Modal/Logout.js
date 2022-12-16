@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useCookies } from "react-cookie";
+import React from "react";
+// import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import { UserLogout } from "../../reducers/user.reducer";
 
@@ -8,7 +8,7 @@ function Logout({ closeModal }) {
   const dispatch = useDispatch();
 
   //call the useCookie hook
-  const [cookie, removeCookie] = useCookies(["user"]);
+  // const [cookie, removeCookie] = useCookies(["user"]);
 
   //close the modal and handle the logout operations
   const handleLogout = () => {

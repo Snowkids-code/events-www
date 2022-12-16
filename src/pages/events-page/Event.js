@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import minus from "../../assets/svg/minus.svg";
 import plus from "../../assets/svg/plus.svg";
 import DropDown from "../../components/Reusable/DropDown";
-import data from "../../data/dropdown-values.json";
 import faq from "../../data/faq.json";
 import map from "../../assets/image/map.png";
 import tags from "../../data/tags.json";
@@ -10,12 +9,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { addEvent } from "../../reducers/cart.reducer";
 
 function Event() {
+  //initial number of products
   const [counter, setCounter] = useState(1);
 
+  //add the total number of products
   const addCounter = () => {
     setCounter(counter < 9 ? (count) => count + 1 : 9);
   };
 
+  //subtract the total number of products
   const removeCounter = () => {
     setCounter(counter > 1 ? (count) => count - 1 : 1);
   };
@@ -35,13 +37,10 @@ function Event() {
       {event ? (
         <>
           <div className="event-cover-img">
-            {/* <img alt="img" src="/images/stadium-1.jpeg" layout="fill" /> */}
             <div
               className="event-booking-details-container"
               style={{
-                background: `url(${event.img})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+                background: `url(${event.img})`
               }}
             >
               <div className="event-booking-details-wrapper">
@@ -117,14 +116,14 @@ function Event() {
                   {faq.map((faq) => (
                     <div key={faq._id}>
                       <li>
-                        <a href="#">
+                        <p>
                           <strong>Question</strong>:{faq.question}
-                        </a>
+                        </p>
                       </li>
                       <li>
-                        <a href="#">
+                        <p>
                           <strong>Answer</strong>: {faq.answer}
-                        </a>
+                        </p>
                       </li>
                     </div>
                   ))}

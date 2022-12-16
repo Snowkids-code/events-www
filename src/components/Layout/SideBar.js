@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import Logout from "../Modal/Logout";
 
 function SideBar() {
+  //currency converter styles
   const styles = {
     option: (provided, state) => ({
       ...provided,
@@ -21,8 +22,6 @@ function SideBar() {
     }),
     control: (styles) => ({
       ...styles,
-      // border: "none",
-      // boxShadow: "none",
     }),
     singleValue: (styles) => ({
       ...styles,
@@ -38,6 +37,7 @@ function SideBar() {
   //hook to determine modal appearance
   const [logout, setLogout] = useState(false);
 
+  //close the logout modal
   const handleCloseModal = () => {
     setLogout(false);
   };
