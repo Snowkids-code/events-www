@@ -27,7 +27,7 @@ function HomepageCarousel() {
           alt="ChevronLeft"
           width="24"
           height="24"
-          objectFit="contain"
+          // objectFit="contain"
         />
       </div>
       <div
@@ -99,7 +99,7 @@ function HomepageCarousel() {
           alt="ChevronRight"
           width="24"
           height="24"
-          objectFit="contain"
+          // objectFit="contain"
         />
       </div>
     </div>

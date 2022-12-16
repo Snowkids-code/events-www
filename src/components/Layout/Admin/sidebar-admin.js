@@ -9,8 +9,8 @@ function SidebarAdmin() {
         <p className="title">MAIN</p>
         <ul>
           {title?.map((link, i) => (
-            <Link to={link.link} style={{ textDecoration: "none" }}>
-              <li key={i}>
+            <Link to={link.link} style={{ textDecoration: "none" }} key={link._id}>
+              <li>
                 <img alt="" src={link.img} height={24} width={24} />
                 <a href="/#">{link.title}</a>
               </li>

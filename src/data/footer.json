@@ -1,13 +1,16 @@
 [
     {
+        "_id" : 1,
         "image" : "/svg/map-marker.svg",
         "content" : "Along Busia-Kisumu Highway" 
     },
     {
+        "_id" : 2,
         "image" : "/svg/phone.svg",
         "content" : "+254700000000" 
     },
     {
+        "_id" : 3,
         "image" : "/svg/email.svg",
         "content" : "drimz@gmail.com" 
     }

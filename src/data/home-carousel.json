@@ -8,7 +8,7 @@
         "event" : "Qatar World Cup 2022"
     },
     {
-        "_id" : 1,
+        "_id" : 2,
         "firstPicture" : "/images/max-verstappen-image.jpeg",
         "secondPicture" : "/images/lewis-hamilton-image.webp",
         "eventLogo" : "/images/world-cup-image.jpeg",
@@ -16,7 +16,7 @@
         "event" : "Formula 1 Gulf Air bahrain Grand Prix 2023"
     },
     {
-        "_id" : 1,
+        "_id" : 3,
         "firstPicture" : "/images/kipchoge-image.webp",
         "secondPicture" : "/images/cycling-image.jpeg",
         "eventLogo" : "/images/world-cup-image.jpeg",

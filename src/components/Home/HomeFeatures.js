@@ -6,7 +6,7 @@ function HomeFeatures() {
     <div className="home-features-main-container">
       <div className="home-features-container">
         {data?.map((item, i) => (
-          <div key={i} className="home-features-wrapper">
+          <div key={item._id} className="home-features-wrapper">
             <div className="img-wrapper">
               <img alt="" src={item.img} className="img" />
             </div>

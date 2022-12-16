@@ -8,7 +8,7 @@ function Footer() {
       <div className="footer-wrapper">
         <div className="left-container">
           <div className="image-container">
-            <img width={84} height={84} src={logo} alt="" objectFit="contain" />
+            <img width={84} height={84} src={logo} alt="" />
             <p>Event-BIT</p>
           </div>
           <p>
@@ -20,13 +20,12 @@ function Footer() {
           <div className="contact-us-container">
             <p className="title">CONTACT US</p>
             {footerData.map((item) => (
-              <div className="contact-us-wrapper" key={item}>
+              <div className="contact-us-wrapper" key={item._id}>
                 <img
                   width={18}
                   height={18}
                   src={item.image}
                   alt=""
-                  objectFit="contain"
                 />
                 <p>{item.content}</p>
               </div>

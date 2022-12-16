@@ -1,20 +1,24 @@
 [
   {
+    "_id" : 1,
     "img": "/svg/dashboard.svg",
     "title": "Dashboard",
     "link": "/"
   },
   {
+    "_id" : 2,
     "img": "/svg/account.svg",
     "title": "Users",
     "link": "/admin/users"
   },
   {
+    "_id" : 3,
     "img": "/svg/product.svg",
     "title": "Events",
     "link": "/admin/events"
   },
   {
+    "_id" : 4,
     "img": "/svg/credit-card.svg",
     "title": "Orders",
     "link": "/admin/orders"

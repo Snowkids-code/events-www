@@ -115,14 +115,14 @@ function Event() {
                 <h2 className="title">FAQs</h2>
                 <ul>
                   {faq.map((faq) => (
-                    <div>
+                    <div key={faq._id}>
                       <li>
-                        <a>
+                        <a href="#">
                           <strong>Question</strong>:{faq.question}
                         </a>
                       </li>
                       <li>
-                        <a>
+                        <a href="#">
                           <strong>Answer</strong>: {faq.answer}
                         </a>
                       </li>
