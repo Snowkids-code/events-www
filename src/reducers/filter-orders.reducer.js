@@ -3,14 +3,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 //filter data
 export const getFilteredDataThunk = createAsyncThunk(
   "orders/filteredOrders",
-  (filterValue) => {
+  (unfliteredOrders) => {
     //filter function used to filter the orders array
     function getFilter(data) {
-      return data.status === filterValue.filterValue.value;
+      return data.status === unfliteredOrders.filterValue.value;
     }
 
     //call the filter method on the orders array
-    return filterValue.orders.filter(getFilter);
+    return unfliteredOrders.orders.filter(getFilter);
   },
 );
 
